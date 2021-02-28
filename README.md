@@ -8,3 +8,9 @@
 Detailnejší návrh hlavnej stránky.
 <img src=https://user-images.githubusercontent.com/56247627/109429613-dd82fa00-79fc-11eb-94ee-21bd09799697.png>
 </details>
+<details>
+   <summary>Inšpirácia do budúcna</summary>
+  -Škálovateľnosť parkovísk
+  -Možnosť vytvoriť viac parkovísk a prihlásiť sa do nich
+  -História parkovania
+</details>
