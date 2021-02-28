@@ -4,3 +4,4 @@
 2.Parkovacie miesto- Po rozkiknutí sa zobrazia informácie o parkovacom mieste jeho rezervácií a prípadné zarezervovanie miesta + dátum a čas- od kedy do kedy.
 ![image](https://user-images.githubusercontent.com/56247627/109429351-9fd1a180-79fb-11eb-906d-4b1dc79c49e8.png)
 Detailnejší návrh hlavnej stránky.
+![image](https://user-images.githubusercontent.com/56247627/109429613-dd82fa00-79fc-11eb-94ee-21bd09799697.png)
