@@ -10,7 +10,7 @@ Detailnejší návrh hlavnej stránky.
 </details>
 <details>
    <summary>Inšpirácia do budúcna</summary>
-  -Škálovateľnosť parkovísk
-  -Možnosť vytvoriť viac parkovísk a prihlásiť sa do nich
-  -História parkovania
+  -Škálovateľnosť parkovísk<br>
+  -Možnosť vytvoriť viac parkovísk a prihlásiť sa do nich<br>
+  -História parkovania<br>
 </details>
