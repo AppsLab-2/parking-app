@@ -1,20 +1,20 @@
-package com.example.parkingapp;
+package ParkingPlace;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ParkingLot {
+public class ParkingPlace {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String name;
 
-    public ParkingLot() {
+    public ParkingPlace(){
     }
 
-    public ParkingLot(Long id, String name){
+    public ParkingPlace(Long id, String name){
         this.id = id;
         this.name = name;
     }
