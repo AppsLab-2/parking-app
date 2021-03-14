@@ -1,0 +1,39 @@
+<mat-card><mat-card-header class="head"><div class="center"><mat-card-title><h1>{{ today | date:'shortTime' }} </h1></mat-card-title><mat-card-subtitle id="datum">{{today | date:'fullDate'}}</mat-card-subtitle></div></mat-card-header>
+    <table class="buttons">
+    <TD><button mat-raised-button color="primary">Pondelok</button></TD>
+    <TD><button mat-raised-button color="primary">Utorok</button></TD>
+    <TD><button mat-raised-button color="primary">Streda</button></TD>
+    <TD><button mat-raised-button color="primary">Štvrtok</button></TD>
+    <TD><button mat-raised-button color="primary">Piatok</button></TD>
+    <TD><button mat-raised-button color="primary">Sobota</button></TD>
+    <TD><button mat-raised-button color="primary">Nedeľa</button></TD>
+  </table>
+  <mat-card-content>
+<table class="places"  WIDTH="100%">
+  <TR id="riadok">
+  <TD><button mat-raised-button color="accent"><span>P01</span></button></TD>
+  <TD><button mat-raised-button color="warn"><span>P02</span></button></TD>
+  <TD><button mat-raised-button color="accent"><span>P03</span></button></TD>
+  <TD><button mat-raised-button color="warn"><span>P04</span></button></TD>
+</TR>
+<TR id="riadok">
+  <TD><button mat-raised-button color="accent"><span>P05</span></button></TD>
+  <TD><button mat-raised-button color="warn"><span>P06</span></button></TD>
+  <TD><button mat-raised-button color="accent"><span>P07</span></button></TD>
+  <TD><button mat-raised-button color="warn"><span>P08</span></button></TD>
+</TR>
+<TR id="riadok">
+  <TD><button mat-raised-button color="accent"><span>P09</span></button></TD>
+  <TD><button mat-raised-button color="warn"><span>P10</span></button></TD>
+  <TD><button mat-raised-button color="accent"><span>P11</span></button></TD>
+  <TD><button mat-raised-button color="warn"><span>P12</span></button></TD>
+</TR>
+<TR id="riadok">
+  <TD><button mat-raised-button color="accent"><span>P13</span></button></TD>
+  <TD><button mat-raised-button color="warn"><span>P14</span></button></TD>
+  <TD><button mat-raised-button color="accent"><span>P15</span></button></TD>
+  <TD><button mat-raised-button color="warn"><span>P16</span></button></TD>
+</TR>
+</table>
+  </mat-card-content>
+</mat-card>
