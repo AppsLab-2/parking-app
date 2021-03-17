@@ -1,1 +1,18 @@
-<p>dashboard works!</p>
+<mat-card>
+    <table class="buttons">
+    <TD><button mat-raised-button color="primary">Pondelok</button></TD>
+    <TD><button mat-raised-button color="primary">Utorok</button></TD>
+    <TD><button mat-raised-button color="primary">Streda</button></TD>
+    <TD><button mat-raised-button color="primary">Štvrtok</button></TD>
+    <TD><button mat-raised-button color="primary">Piatok</button></TD>
+    <TD><button mat-raised-button color="primary" >Sobota</button></TD>
+    <TD><button mat-raised-button color="primary">Nedeľa</button></TD>
+  </table>
+  <mat-card-content>
+    <ul class="places">
+      <li *ngFor="let place of places">
+        <button mat-raised-button routerLink="/detail/{{place.id}}"><span>{{place.id}}</span></button>
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>
