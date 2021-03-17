@@ -7,6 +7,8 @@
 <img src=https://user-images.githubusercontent.com/56247627/109429351-9fd1a180-79fb-11eb-906d-4b1dc79c49e8.png>
 Detailnejší návrh hlavnej stránky.
 <img src=https://user-images.githubusercontent.com/56247627/109429613-dd82fa00-79fc-11eb-94ee-21bd09799697.png>
+Momentálny dashboard stránky
+<img src="https://user-images.githubusercontent.com/71691990/111344859-0c47d400-867d-11eb-95a0-c1829d2d56eb.png">
 </details>
 <details>
    <summary>Inšpirácia do budúcna</summary>
