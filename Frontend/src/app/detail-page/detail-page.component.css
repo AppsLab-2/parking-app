@@ -1,4 +1,6 @@
 .back{
-    margin-top: 600px;
-    margin-left: 1500px;
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+
 }

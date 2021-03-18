@@ -9,10 +9,12 @@
     <TD><button mat-raised-button color="primary">Nedeľa</button></TD>
   </table>
   <mat-card-content>
-    <ul class="places">
-      <li *ngFor="let place of places">
-        <button mat-raised-button routerLink="/detail/{{place.id}}"><span>{{place.id}}</span></button>
-      </li>
-    </ul>
+    <mat-grid-list cols="4" rowHeight="0.1:0.1">
+      
+      <mat-grid-tile *ngFor="let place of places" id="riadok">
+      <button mat-raised-button routerLink="/detail/{{place.id}}"><span>{{place.id}}</span></button>
+      </mat-grid-tile>
+    
+    </mat-grid-list>
   </mat-card-content>
 </mat-card>

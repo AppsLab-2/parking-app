@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetailPageComponent } from './detail-page/detail-page.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MessagesComponent } from './messages/messages.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    MatGridListModule
     
   ],
   providers: [],
