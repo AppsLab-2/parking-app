@@ -7,11 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DetailPageComponent } from './detail-page/detail-page.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    DetailPageComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    MatGridListModule
     
   ],
   providers: [],

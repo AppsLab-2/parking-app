@@ -1,0 +1,5 @@
+<div *ngIf="place" >
+  <h2>Detail of parking place number {{place.id}}</h2>
+  <span>Parking place number  {{place.id}}</span>
+  <span> is available   {{place.Isavailable}}<span>
+<button mat-raised-button color="primary" (click)="goBack()" class="back">go back</button>
