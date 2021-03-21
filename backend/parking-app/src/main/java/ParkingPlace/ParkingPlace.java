@@ -1,22 +1,24 @@
 package ParkingPlace;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import ParkingLot.ParkingLot;
+
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class ParkingPlace {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private String name;
+    private int number;
+    private LocalDate parkingTime;
 
     public ParkingPlace(){
     }
 
-    public ParkingPlace(Long id, String name){
+    public ParkingPlace(Long id, int number, LocalDate parkingTime){
         this.id = id;
-        this.name = name;
+        this.number = number;
+        this.parkingTime = parkingTime;
     }
 
     public Long getId() {
@@ -24,14 +26,29 @@ public class ParkingPlace {
     }
 
     public void setId(Long id) {
+
         this.id = id;
     }
+    @ManyToOne
+    @JoinColumn(name="parkingLot_id", nullable=false)
+    private ParkingLot parkingLot;
 
-    public String getName() {
-        return name;
+
+    public int getNumber() {
+
+        return number;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNumber(int number) {
+
+        this.number = number;
+    }
+
+    public LocalDate getParkingTime() {
+        return parkingTime;
+    }
+
+    public void setParkingTime(LocalDate parkingTime) {
+        this.parkingTime = parkingTime;
     }
 }

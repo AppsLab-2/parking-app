@@ -1,8 +1,5 @@
 package ParkingLot;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ParkingLot {
@@ -18,6 +15,8 @@ public class ParkingLot {
         this.id = id;
         this.name = name;
     }
+    @OneToMany(mappedBy = "ParkingLot")
+    private ParkingLot parkingLot;
 
     public Long getId() {
         return id;
