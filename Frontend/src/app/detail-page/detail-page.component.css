@@ -4,3 +4,9 @@
     bottom: 100px;
 
 }
+table{
+    position: fixed;
+    top: 250px;
+    left: 750px;
+    right: 200px;
+}

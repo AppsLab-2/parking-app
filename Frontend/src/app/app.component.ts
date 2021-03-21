@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   today: number = Date.now();
+  date:Date; 
+  constructor(){
+    setInterval(() => {
+      this.date = new Date()
+    }, 1000)}
   }

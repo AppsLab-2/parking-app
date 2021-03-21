@@ -1,18 +1,18 @@
 <mat-card>
     <table class="buttons">
-    <TD><button mat-raised-button color="primary">Pondelok</button></TD>
-    <TD><button mat-raised-button color="primary">Utorok</button></TD>
-    <TD><button mat-raised-button color="primary">Streda</button></TD>
-    <TD><button mat-raised-button color="primary">Štvrtok</button></TD>
-    <TD><button mat-raised-button color="primary">Piatok</button></TD>
-    <TD><button mat-raised-button color="primary" >Sobota</button></TD>
-    <TD><button mat-raised-button color="primary">Nedeľa</button></TD>
+    <TD><button mat-raised-button color="primary" (click)="Mon()">Pondelok</button></TD>
+    <TD><button mat-raised-button color="primary" (click)="Tur()">Utorok</button></TD>
+    <TD><button mat-raised-button color="primary" (click)="Wen()">Streda</button></TD>
+    <TD><button mat-raised-button color="primary" (click)="Thur()">Štvrtok</button></TD>
+    <TD><button mat-raised-button color="primary" (click)="Fri()">Piatok</button></TD>
+    <TD><button mat-raised-button color="primary" (click)="Sat()">Sobota</button></TD>
+    <TD><button mat-raised-button color="primary" (click)="Sun()">Nedeľa</button></TD>
   </table>
   <mat-card-content>
     <mat-grid-list cols="4" rowHeight="0.1:0.1">
-      
       <mat-grid-tile *ngFor="let place of places" id="riadok">
-      <button mat-raised-button routerLink="/detail/{{place.id}}"><span>{{place.id}}</span></button>
+      <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="place.Isavailable[D][I]; else elseB"><span>{{place.id}}</span></button>
+      <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button></ng-template>
       </mat-grid-tile>
     
     </mat-grid-list>

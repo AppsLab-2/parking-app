@@ -1,4 +1,6 @@
 export interface Place {
     id: number;
-    Isavailable : boolean;
+    Isavailable : boolean[][];
+    Time : String[];
+    Day: String[];
   }

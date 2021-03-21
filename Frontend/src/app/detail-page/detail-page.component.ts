@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {PLACES} from '../parking-place'
 import {Place} from '../place';
 import {PlaceService} from '../place.service'
 
@@ -17,15 +16,15 @@ export class DetailPageComponent implements OnInit {
     private placeService: PlaceService,
     private route: ActivatedRoute
   ) {}
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.getPlace();
   }
-  getPlace(): void{
-    const id = +this.route.snapshot.paramMap.get('id')
-    this.placeService.getPlace(id).subscribe(place => this.place = place)
+
+  getPlace(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.placeService.getPlace(id)
+      .subscribe(hero => this.place = hero);
   }
-
-
   goBack(): void{
 this.location.back();
 
