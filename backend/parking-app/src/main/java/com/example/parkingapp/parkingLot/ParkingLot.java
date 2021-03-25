@@ -1,5 +1,8 @@
-package ParkingLot;
+package com.example.parkingapp.parkingLot;
+import com.example.parkingapp.parkingPlace.ParkingPlace;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class ParkingLot {
@@ -15,8 +18,8 @@ public class ParkingLot {
         this.id = id;
         this.name = name;
     }
-    @OneToMany(mappedBy = "ParkingLot")
-    private ParkingLot parkingLot;
+    @OneToMany(mappedBy = "parkingLot")
+    private List<ParkingPlace> parkingPlace;
 
     public Long getId() {
         return id;
@@ -32,5 +35,13 @@ public class ParkingLot {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<ParkingPlace> getParkingPlace() {
+        return parkingPlace;
+    }
+
+    public void setParkingPlace(List<ParkingPlace> parkingPlace) {
+        this.parkingPlace = parkingPlace;
     }
 }
