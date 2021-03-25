@@ -1,5 +1,69 @@
 <div *ngIf="place" >
   <h2>Detail of parking place number {{place.id}}</h2>
-  <span>Parking place number  {{place.id}}</span>
-  <span> is available   {{place.Isavailable}}<span>
+  <table class="table">
+    <TR>
+      <TD></TD>
+      <TD>{{place.Day[0]}}</TD>
+      <TD>{{place.Day[1]}}</TD>
+      <TD>{{place.Day[2]}}</TD>
+      <TD>{{place.Day[3]}}</TD>
+      <TD>{{place.Day[4]}}</TD>
+      <TD>{{place.Day[5]}}</TD>
+      <TD>{{place.Day[6]}}</TD>
+    </TR>
+    <TR>
+      <TD>{{place.Time[0]}}</TD>
+      <TD>{{place.Isavailable[0][0]}}</TD>
+      <TD>{{place.Isavailable[0][1]}}</TD>
+      <TD>{{place.Isavailable[0][2]}}</TD>
+      <TD>{{place.Isavailable[0][3]}}</TD>
+      <TD>{{place.Isavailable[0][4]}}</TD>
+      <TD>{{place.Isavailable[0][5]}}</TD>
+    </TR>
+    <TR>
+      <TD>{{place.Time[1]}}</TD>
+      <TD>{{place.Isavailable[1][0]}}</TD>
+      <TD>{{place.Isavailable[1][1]}}</TD>
+      <TD>{{place.Isavailable[1][2]}}</TD>
+      <TD>{{place.Isavailable[1][3]}}</TD>
+      <TD>{{place.Isavailable[1][4]}}</TD>
+      <TD>{{place.Isavailable[1][5]}}</TD>
+    </TR>
+    <TR>
+      <TD>{{place.Time[2]}}</TD>
+      <TD>{{place.Isavailable[2][0]}}</TD>
+      <TD>{{place.Isavailable[2][1]}}</TD>
+      <TD>{{place.Isavailable[2][2]}}</TD>
+      <TD>{{place.Isavailable[2][3]}}</TD>
+      <TD>{{place.Isavailable[2][4]}}</TD>
+      <TD>{{place.Isavailable[2][5]}}</TD>
+    </TR>
+    <TR>
+      <TD>{{place.Time[3]}}</TD>
+      <TD>{{place.Isavailable[3][0]}}</TD>
+      <TD>{{place.Isavailable[3][1]}}</TD>
+      <TD>{{place.Isavailable[3][2]}}</TD>
+      <TD>{{place.Isavailable[3][3]}}</TD>
+      <TD>{{place.Isavailable[3][4]}}</TD>
+      <TD>{{place.Isavailable[3][5]}}</TD>
+    </TR>
+    <TR>
+      <TD>{{place.Time[4]}}</TD>
+      <TD>{{place.Isavailable[4][0]}}</TD>
+      <TD>{{place.Isavailable[4][1]}}</TD>
+      <TD>{{place.Isavailable[4][2]}}</TD>
+      <TD>{{place.Isavailable[4][3]}}</TD>
+      <TD>{{place.Isavailable[4][4]}}</TD>
+      <TD>{{place.Isavailable[4][5]}}</TD>
+    </TR>
+    <TR>
+      <TD>{{place.Time[5]}}</TD>
+      <TD>{{place.Isavailable[5][0]}}</TD>
+      <TD>{{place.Isavailable[5][1]}}</TD>
+      <TD>{{place.Isavailable[5][2]}}</TD>
+      <TD>{{place.Isavailable[5][3]}}</TD>
+      <TD>{{place.Isavailable[5][4]}}</TD>
+      <TD>{{place.Isavailable[5][5]}}</TD>
+    </TR>
+  </table>
 <button mat-raised-button color="primary" (click)="goBack()" class="back">go back</button>

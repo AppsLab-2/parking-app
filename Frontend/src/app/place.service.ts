@@ -1,24 +1,37 @@
 import { Injectable } from '@angular/core';
-
+import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Place } from './place';
-import { PLACES } from './parking-place';
 import { MessageService } from './message.service';
 
 @Injectable({ providedIn: 'root' })
 export class PlaceService {
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService,  private http: HttpClient) { }
+  private placesUrl = 'api/places';
 
   getPlaces(): Observable<Place[]> {
-    // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('PlaceService: fetched places');
-    return of(PLACES);
+    return this.http.get<Place[]>(this.placesUrl)
+      .pipe(
+        tap(_ => this.log('fetched places')),
+        catchError(this.handleError<Place[]>('getPlaces', []))
+      );
   }
-
   getPlace(id: number): Observable<Place> {
-    // TODO: send the message _after_ fetching the hero
-    this.messageService.add(`PlaceService: fetched place id=${id}`);
-    return of(PLACES.find(place => place.id === id));
+    const url = `${this.placesUrl}/${id}`;
+    return this.http.get<Place>(url).pipe(
+      tap(_ => this.log(`fetched place id=${id}`)),
+      catchError(this.handleError<Place>(`getPlace id=${id}`))
+    );
+  }
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error); 
+      this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+  private log(message: string) {
+    this.messageService.add(`PlaceService: ${message}`);
   }
 }

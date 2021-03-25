@@ -1,2 +1,2 @@
-<mat-card-header class="head"><div class="center"><mat-card-title><h1>{{ today | date:'mediumTime' }} </h1></mat-card-title><mat-card-subtitle id="datum">{{today | date:'fullDate'}}</mat-card-subtitle></div></mat-card-header>
+<mat-card-header class="head"><div class="center" ng-app="autoRefreshApp"><mat-card-title><h1>{{ date | date:'HH:mm:ss' }} </h1></mat-card-title><mat-card-subtitle id="datum">{{date | date:'fullDate'}}</mat-card-subtitle></div></mat-card-header>
 <router-outlet></router-outlet>
