@@ -9,7 +9,9 @@ import { MessageService } from './message.service';
 export class PlaceService {
   constructor(private messageService: MessageService,  private http: HttpClient) { }
   private placesUrl = 'api/places';
-
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   getPlaces(): Observable<Place[]> {
     return this.http.get<Place[]>(this.placesUrl)
       .pipe(
@@ -33,5 +35,11 @@ export class PlaceService {
   }
   private log(message: string) {
     this.messageService.add(`PlaceService: ${message}`);
+  }
+  updatePlace(place: Place): Observable<any> {
+    return this.http.put(this.placesUrl, place, this.httpOptions).pipe(
+      tap(_ => this.log(`updated place id=${place.id}`)),
+      catchError(this.handleError<any>('updatePlace'))
+    );
   }
 }

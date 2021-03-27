@@ -14,56 +14,63 @@
     <TR>
       <TD>{{place.Time[0]}}</TD>
       <TD>{{place.Isavailable[0][0]}}</TD>
-      <TD>{{place.Isavailable[0][1]}}</TD>
-      <TD>{{place.Isavailable[0][2]}}</TD>
-      <TD>{{place.Isavailable[0][3]}}</TD>
-      <TD>{{place.Isavailable[0][4]}}</TD>
-      <TD>{{place.Isavailable[0][5]}}</TD>
+      <TD>{{place.Isavailable[1][0]}}</TD>
+      <TD>{{place.Isavailable[2][0]}}</TD>
+      <TD>{{place.Isavailable[3][0]}}</TD>
+      <TD>{{place.Isavailable[4][0]}}</TD>
+      <TD>{{place.Isavailable[5][0]}}</TD>
+      <TD>{{place.Isavailable[6][0]}}</TD>
     </TR>
     <TR>
       <TD>{{place.Time[1]}}</TD>
-      <TD>{{place.Isavailable[1][0]}}</TD>
+      <TD>{{place.Isavailable[0][1]}}</TD>
       <TD>{{place.Isavailable[1][1]}}</TD>
-      <TD>{{place.Isavailable[1][2]}}</TD>
-      <TD>{{place.Isavailable[1][3]}}</TD>
-      <TD>{{place.Isavailable[1][4]}}</TD>
-      <TD>{{place.Isavailable[1][5]}}</TD>
+      <TD>{{place.Isavailable[2][1]}}</TD>
+      <TD>{{place.Isavailable[3][1]}}</TD>
+      <TD>{{place.Isavailable[4][1]}}</TD>
+      <TD>{{place.Isavailable[5][1]}}</TD>
+      <TD>{{place.Isavailable[6][1]}}</TD>
     </TR>
     <TR>
       <TD>{{place.Time[2]}}</TD>
-      <TD>{{place.Isavailable[2][0]}}</TD>
-      <TD>{{place.Isavailable[2][1]}}</TD>
+      <TD>{{place.Isavailable[0][2]}}</TD>
+      <TD>{{place.Isavailable[1][2]}}</TD>
       <TD>{{place.Isavailable[2][2]}}</TD>
-      <TD>{{place.Isavailable[2][3]}}</TD>
-      <TD>{{place.Isavailable[2][4]}}</TD>
-      <TD>{{place.Isavailable[2][5]}}</TD>
+      <TD>{{place.Isavailable[3][2]}}</TD>
+      <TD>{{place.Isavailable[4][2]}}</TD>
+      <TD>{{place.Isavailable[5][2]}}</TD>
+      <TD>{{place.Isavailable[6][2]}}</TD>
     </TR>
     <TR>
       <TD>{{place.Time[3]}}</TD>
-      <TD>{{place.Isavailable[3][0]}}</TD>
-      <TD>{{place.Isavailable[3][1]}}</TD>
-      <TD>{{place.Isavailable[3][2]}}</TD>
+      <TD>{{place.Isavailable[0][3]}}</TD>
+      <TD>{{place.Isavailable[1][3]}}</TD>
+      <TD>{{place.Isavailable[2][3]}}</TD>
       <TD>{{place.Isavailable[3][3]}}</TD>
-      <TD>{{place.Isavailable[3][4]}}</TD>
-      <TD>{{place.Isavailable[3][5]}}</TD>
+      <TD>{{place.Isavailable[4][3]}}</TD>
+      <TD>{{place.Isavailable[5][3]}}</TD>
+      <TD>{{place.Isavailable[6][3]}}</TD>
     </TR>
     <TR>
       <TD>{{place.Time[4]}}</TD>
-      <TD>{{place.Isavailable[4][0]}}</TD>
-      <TD>{{place.Isavailable[4][1]}}</TD>
-      <TD>{{place.Isavailable[4][2]}}</TD>
-      <TD>{{place.Isavailable[4][3]}}</TD>
+      <TD>{{place.Isavailable[0][4]}}</TD>
+      <TD>{{place.Isavailable[1][4]}}</TD>
+      <TD>{{place.Isavailable[2][4]}}</TD>
+      <TD>{{place.Isavailable[3][4]}}</TD>
       <TD>{{place.Isavailable[4][4]}}</TD>
-      <TD>{{place.Isavailable[4][5]}}</TD>
+      <TD>{{place.Isavailable[5][4]}}</TD>
+      <TD>{{place.Isavailable[6][4]}}</TD>
     </TR>
     <TR>
       <TD>{{place.Time[5]}}</TD>
-      <TD>{{place.Isavailable[5][0]}}</TD>
-      <TD>{{place.Isavailable[5][1]}}</TD>
-      <TD>{{place.Isavailable[5][2]}}</TD>
-      <TD>{{place.Isavailable[5][3]}}</TD>
-      <TD>{{place.Isavailable[5][4]}}</TD>
+      <TD>{{place.Isavailable[0][5]}}</TD>
+      <TD>{{place.Isavailable[1][5]}}</TD>
+      <TD>{{place.Isavailable[2][5]}}</TD>
+      <TD>{{place.Isavailable[3][5]}}</TD>
+      <TD>{{place.Isavailable[4][5]}}</TD>
       <TD>{{place.Isavailable[5][5]}}</TD>
+      <TD>{{place.Isavailable[6][5]}}</TD>
     </TR>
   </table>
+  <button routerLink="/book-form/{{place.id}}"  mat-raised-button color="primary">Book</button>
 <button mat-raised-button color="primary" (click)="goBack()" class="back">go back</button>
