@@ -1,28 +1,31 @@
 package com.example.parkingapp.parkingPlace;
+import com.example.parkingapp.Reservation;
 import com.example.parkingapp.parkingLot.ParkingLot;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class ParkingPlace {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private boolean isavalible;
-    private String time;
-    private String day;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="parkingLot_id", nullable=false)
+    private ParkingLot parkingLot;
 
+    @OneToMany(mappedBy = "parkingPlace", fetch = FetchType.EAGER)
+    private List<Reservation> reservation;
 
-
-    public ParkingPlace(){
+    public ParkingPlace(Long id, ParkingLot parkingLot, List<Reservation> reservation) {
+        this.id = id;
+        this.parkingLot = parkingLot;
+        this.reservation = reservation;
     }
 
-    public ParkingPlace(Long id, boolean isavalible, String time, String day){
-        this.id = id;
-        this.isavalible = isavalible;
-        this.time = time;
-        this.day = day;
-
+    public ParkingPlace() {
     }
 
     public Long getId() {
@@ -30,38 +33,7 @@ public class ParkingPlace {
     }
 
     public void setId(Long id) {
-
         this.id = id;
-    }
-    @ManyToOne
-    @JoinColumn(name="parkingLot_id", nullable=false)
-    private ParkingLot parkingLot;
-
-
-
-
-    public boolean getIsavalible() {
-        return isavalible;
-    }
-
-    public void setIsavalible(boolean isavalible) {
-        this.isavalible = isavalible;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
     }
 
     public ParkingLot getParkingLot() {
@@ -70,5 +42,13 @@ public class ParkingPlace {
 
     public void setParkingLot(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
+    }
+
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
     }
 }

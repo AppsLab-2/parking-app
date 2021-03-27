@@ -8,6 +8,12 @@ public class ParkingPlaceServicelpml implements ParkingPlaceService{
     public ParkingPlaceServicelpml(ParkingPlaceRepository parkingPlaceRepository){
         this.parkingPlaceRepository = parkingPlaceRepository;
     }
+
+    @Override
+    public Iterable<ParkingPlace> getAllParkingPlaces() {
+        return parkingPlaceRepository.findAll();
+    }
+
     @Override
     public void saveParkingPlace(ParkingPlace parkingPlace) {
         parkingPlaceRepository.save(parkingPlace);
