@@ -1,4 +1,4 @@
-package ParkingLot;
+package com.example.parkingapp.parkingLot;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,6 +11,6 @@ public class ParkingLotServicelpml implements ParkingLotService{
     }
     @Override
     public void saveParkingLot(ParkingLot parkingLot) {
-        ParkingLotRepository parkingLotRepository;
+        parkingLotRepository.save(parkingLot);
     }
 }
