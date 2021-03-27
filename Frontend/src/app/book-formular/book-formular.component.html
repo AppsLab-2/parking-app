@@ -1,0 +1,450 @@
+<h1>Basic mat-select</h1>
+<mat-form-field appearance="fill">
+  <mat-label>Number of  to book</mat-label>
+  <mat-select [(value)]="selectednumber">
+    <mat-option [value]="number.value" *ngFor="let number of numbers">
+      {{number.value}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  <div [ngSwitch]="selectednumber">
+<mat-form-field appearance="fill" *ngSwitchCase="1">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday1">
+       <mat-option *ngFor="let days of place.Day" [value]="days" (click)="compareDay1(selectedday1)">
+        {{days}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="1">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime1">
+      <mat-option *ngFor="let time of place.Time" [value]="time" (click)="compareTime1(selectedtime1)">
+        {{time}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="2">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday1">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay1(selectedday1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="2">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime1">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime1(selectedtime1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="2">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday2">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay2(selectedday2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="2">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime2">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime2(selectedtime2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="3">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday1">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay1(selectedday1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="3">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime1">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime1(selectedtime1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="3">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday2">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay2(selectedday2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="3">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime2">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime2(selectedtime2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="3">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday3">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay3(selectedday3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="3">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime3">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime3(selectedtime3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="4">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday1">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay1(selectedday1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="4">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime1">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime1(selectedtime1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="4">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday2">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay2(selectedday2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="4">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime2">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime2(selectedtime2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="4">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday3">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay3(selectedday3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="4">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime3">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime3(selectedtime3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="4">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday4">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay4(selectedday4)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="4">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime4">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime4(selectedtime4)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday1">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay1(selectedday1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime1">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime1(selectedtime1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday2">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay2(selectedday2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime2">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime2(selectedtime2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday3">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay3(selectedday3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime3">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime3(selectedtime3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday4">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay4(selectedday4)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime4">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime4(selectedtime4)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday5">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay5(selectedday5)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="5">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime5">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime5(selectedtime5)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday1">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay1(selectedday1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime1">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime1(selectedtime1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday2">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay2(selectedday2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime2">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime2(selectedtime2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday3">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay3(selectedday3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime3">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime3(selectedtime3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday4">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay4(selectedday4)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime4">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime4(selectedtime4)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday5">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay5(selectedday5)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime5">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime5(selectedtime5)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday6">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay6(selectedday6)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="6">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime6">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime6(selectedtime6)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday1">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay1(selectedday1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime1">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime1(selectedtime1)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday2">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay2(selectedday2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime2">
+      <mat-option *ngFor="let place of place.Time" [value]="place"  (click)="compareTime2(selectedtime2)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday3">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay3(selectedday3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime3">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime3(selectedtime3)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday4">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay4(selectedday4)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime4">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime4(selectedtime4)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday5">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay5(selectedday5)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime5">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime5(selectedtime5)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday6">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay6(selectedday6)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime6">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime6(selectedtime6)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedday7">
+      <mat-option *ngFor="let place of place.Day" [value]="place" (click)="compareDay7(selectedday7)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><mat-form-field appearance="fill" *ngSwitchCase="7">
+    <mat-label>Time to book</mat-label>
+    <mat-select [(value)]="selectedtime7">
+      <mat-option *ngFor="let place of place.Time" [value]="place" (click)="compareTime7(selectedtime7)">
+        {{place}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<button mat-raised-button color="primary" routerLink="/dashboard" (click)="book()">Book</button>
+<button mat-raised-button color="primary" (click)="goBack()" class="back">go back</button>

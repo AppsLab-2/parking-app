@@ -33,23 +33,22 @@ comparetime(){
   if(this.today.getHours()>=7&&this.today.getHours()<8){
     this.I=0
   }
-  if(this.today.getHours()>=8&&this.today.getHours()<10){
+  else if(this.today.getHours()>=8&&this.today.getHours()<10){
     this.I=1
   }
-  if(this.today.getHours()>=10&&this.today.getHours()<12){
+  else if(this.today.getHours()>=10&&this.today.getHours()<12){
     this.I=2
   }
-  if(this.today.getHours()>=12&&this.today.getHours()<14){
+  else if(this.today.getHours()>=12&&this.today.getHours()<14){
     this.I=3
   }
-  if(this.today.getHours()>=14&&this.today.getHours()<16){
+  else if(this.today.getHours()>=14&&this.today.getHours()<16){
     this.I=4
   }
-  if(this.today.getHours()>=16&&this.today.getHours()<18){
+  else if(this.today.getHours()>=16&&this.today.getHours()<18){
     this.I=5
   }
-  if(this.today.getHours()>=18&&this.today.getHours()<19){
-    this.I=6
+ else{this.I=0}
   }
 }
-}
+

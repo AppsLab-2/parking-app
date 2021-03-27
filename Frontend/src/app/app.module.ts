@@ -13,6 +13,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BookFormularComponent } from './book-formular/book-formular.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -20,6 +26,7 @@ import { CommonModule } from '@angular/common';
     DashboardComponent,
     DetailPageComponent,
     MessagesComponent,
+    BookFormularComponent,
     
   ],
   imports: [
@@ -33,8 +40,12 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false },
-    )
-    
+    ),
+    MatTabsModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
