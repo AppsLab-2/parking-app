@@ -1,0 +1,20 @@
+.form{
+    position: fixed;
+    right: 800px;
+    max-width: 600px;
+}
+#dashboard{
+    position: fixed;
+    top: 80px;
+    right: 20px;
+}
+#back{
+    position: fixed;
+    top: 80px;
+    right: 320px;
+}
+#book{
+    position: fixed;
+    top: 80px;
+    right: 180px;
+}

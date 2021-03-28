@@ -16,7 +16,11 @@ text-align: center;
   .places{
     padding-top: 20px;
     text-align: center;
+    
 }
 #riadok{
 height: 150px;
+}
+.mat-tab{
+padding: 100px;
 }

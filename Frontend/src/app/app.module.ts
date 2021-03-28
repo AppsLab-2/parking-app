@@ -38,9 +38,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatGridListModule,
     HttpClientModule,
     CommonModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false },
-    ),
     MatTabsModule,
     MatFormFieldModule,
     MatDialogModule,

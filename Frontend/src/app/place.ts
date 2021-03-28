@@ -1,6 +1,17 @@
-export interface Place {
+export interface ParkingPlace {
     id: number;
-    Isavailable : boolean[][];
-    Time : String[];
-    Day: String[];
+    reservation: Reservation[];
   }
+export interface Reservation{
+  id:number;
+  available: boolean;
+  day:Date;
+  startTime:Date;
+  endTime:Date;
+}
+export interface FEPlace {
+  id:number;
+  isAvailable: boolean[][];
+  time: String[];
+  day: String[];
+}

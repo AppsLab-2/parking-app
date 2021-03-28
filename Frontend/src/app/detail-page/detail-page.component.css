@@ -2,11 +2,19 @@
     position: fixed;
     right: 100px;
     bottom: 100px;
-
+}
+#book{
+    position: fixed;
+    right: 200px;
+    bottom: 100px
 }
 table{
     position: fixed;
     top: 250px;
     left: 750px;
     right: 200px;
+}
+td,tr,table{
+    border: 1px solid black;
+    border-collapse: collapse;
 }
