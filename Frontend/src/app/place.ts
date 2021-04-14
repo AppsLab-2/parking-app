@@ -6,8 +6,8 @@ export interface Reservation{
   id:number;
   available: boolean;
   day:Date;
-  startTime:Date;
-  endTime:Date;
+  startTime:string;
+  endTime:string;
 }
 export interface FEPlace {
   id:number;

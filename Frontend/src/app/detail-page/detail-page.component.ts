@@ -11,6 +11,8 @@ import {PlaceService} from '../place.service'
 })
 export class DetailPageComponent implements OnInit {
  place: FEPlace;
+ timeIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+ dateIndexes = [0, 1, 2, 3, 4, 5, 6];
   constructor(
     private location: Location,
     private placeService: PlaceService,

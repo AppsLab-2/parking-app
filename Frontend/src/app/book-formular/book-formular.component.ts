@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location,WeekDay } from '@angular/common';
-import { FEPlace,Reservation } from '../place';
+import { FEPlace,ParkingPlace,Reservation } from '../place';
 import { PlaceService } from '../place.service'
 import { ActivatedRoute } from '@angular/router';
 interface Number {
@@ -15,6 +15,8 @@ export class BookFormularComponent implements OnInit {
 
   constructor(    private location: Location,private placeService: PlaceService,    private route: ActivatedRoute) { }
   place: FEPlace;
+  places: ParkingPlace;
+  reservation :Reservation;
   ngOnInit(): void {
     this.getPlace();
   }
@@ -37,9 +39,10 @@ export class BookFormularComponent implements OnInit {
         {value: 6},
         {value: 7},
       ];
-      selectednumber:number=this.numbers[0].value;
-      selectedday:string;
-      selectedtime:string;
+      selectedNumber:number=this.numbers[0].value;
+      selectedDay:string;
+      selectedStartTime:string;
+      selectedEndTime:string;
       I:number;
       D:number;
       book(){

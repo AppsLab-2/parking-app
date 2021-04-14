@@ -17,10 +17,13 @@ export class PlaceService {
       .pipe(
         tap(_ => this.log('fetched places')),
         catchError(this.handleError<ParkingPlace[]>('getPlaces', [])),
-        mergeMap(places => from(places)),
-        mergeMap(place => {
+        map(places => places.map(place => {
           function uniqueFilter(value: any, index: number, self: any[]): boolean {
             return self.indexOf(value) === index;
+          }
+
+          function getReservationTime(reservation: Reservation): string {
+            return `${reservation.startTime}-${reservation.endTime}`;
           }
   
           const reservations: Reservation[] = place.reservation.sort((a, b) => {
@@ -31,42 +34,26 @@ export class PlaceService {
           });
   
           const time: String[] = reservations
-            .map(reservation => `${reservation.startTime}-${reservation.endTime}`)
+            .map(getReservationTime)
             .filter(uniqueFilter);
   
           const dates: String[] = reservations
             .map(reservation => reservation.day)
             .filter(uniqueFilter)
-            .map(date => {
-              console.log(date);
-              return date.toString();
-            });
+            .map(date => date.toString());
+          
+          const isAvailable: boolean[][] = dates.map(day => 
+            time.map(time => 
+              reservations.find(reservation => reservation.day.toString() === day && getReservationTime(reservation) === time).available
+            )
+          );
 
-          return from(reservations).pipe(
-            groupBy(reservation => reservation.day),
-            mergeMap(group => group.pipe(
-              reduceToArray<Reservation>(),
-              map(reservations => from(reservations).pipe(
-                groupBy(reservation => reservation.startTime),
-                mergeMap(group => group.pipe(
-                  map(reservation => reservation.available),
-                  reduceToArray<boolean>(),
-                )),
-                reduceToArray<boolean[]>(),
-              )),
-              mergeMap(observable => observable)
-            )),
-            map(available => ({
-              id: place.id,
-              isAvailable: available,
-              time: time,
-              day: dates
-            }))
-          )
-        }),
-        distinctUntilChanged((a, b) => a.id === b.id), // dočasné
-        tap(place => console.log(place)),
-        reduceToArray<FEPlace>()
+          return {
+            id: place.id,
+            isAvailable, time, day: dates
+          };
+        })),
+        tap(result => console.log(result))
       );
   }
   getPlace(id: number): Observable<ParkingPlace> {

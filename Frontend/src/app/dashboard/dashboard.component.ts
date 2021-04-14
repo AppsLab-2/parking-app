@@ -13,13 +13,14 @@ export class DashboardComponent implements OnInit {
   today: Date;
   ngOnInit(): void {
     this.getPlaces();
+    this.compareTime();
   }
   getPlaces(): void{
   this.placeService.getPlaces()
   .subscribe(place => this.places = place)
   }
   I:number;
-comparetime(){
+compareTime(){
   this.today = new Date();
   if (this.today.getHours()>=0&&this.today.getHours()<2) {
    this.I=0
