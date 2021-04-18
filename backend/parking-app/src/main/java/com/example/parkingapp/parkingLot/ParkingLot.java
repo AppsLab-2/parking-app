@@ -18,7 +18,7 @@ public class ParkingLot {
         this.id = id;
         this.name = name;
     }
-    @OneToMany(mappedBy = "parkingLot")
+    @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL)
     private List<ParkingPlace> parkingPlace;
 
     public Long getId() {

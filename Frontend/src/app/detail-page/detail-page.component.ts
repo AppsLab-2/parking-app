@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {Place} from '../place';
+import {FEPlace, Reservation } from '../place';
 import {PlaceService} from '../place.service'
 
 @Component({
@@ -10,7 +10,9 @@ import {PlaceService} from '../place.service'
   styleUrls: ['./detail-page.component.css']
 })
 export class DetailPageComponent implements OnInit {
- place: Place;
+ place: FEPlace;
+ timeIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+ dateIndexes = [0, 1, 2, 3, 4, 5, 6];
   constructor(
     private location: Location,
     private placeService: PlaceService,
@@ -22,8 +24,10 @@ export class DetailPageComponent implements OnInit {
 
   getPlace(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.placeService.getPlace(id)
-      .subscribe(hero => this.place = hero);
+    //this.placeService.getPlace(id)
+    //  .subscribe(place => this.place = place);
+    this.placeService.getPlaces()
+      .subscribe(places => this.place = places.find(place => place.id === id));
   }
   goBack(): void{
 this.location.back();
