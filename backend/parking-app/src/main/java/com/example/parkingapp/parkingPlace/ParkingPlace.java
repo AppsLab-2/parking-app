@@ -1,5 +1,5 @@
 package com.example.parkingapp.parkingPlace;
-import com.example.parkingapp.Reservation;
+import com.example.parkingapp.reservation.Reservation;
 import com.example.parkingapp.parkingLot.ParkingLot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
