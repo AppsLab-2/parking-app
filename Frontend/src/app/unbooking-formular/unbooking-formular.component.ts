@@ -28,7 +28,6 @@ export class UnbookingFormularComponent implements OnInit {
         this.placeService.getPlaces()
           .subscribe(places => this.place = places.find(place => place.id === id));
       }
-      unbook(){}
       startTimes: times[]=[
         {time:"00:00:00"},
         {time:"02:00:00"},
@@ -74,13 +73,11 @@ export class UnbookingFormularComponent implements OnInit {
         }
       }
       choosedStartHour(startTime:string){
-        console.log(startTime)
         for(var i = 0; i<12;i++){
           if (startTime==this.startTimes2[i]) {this.D1=i;}
         }
       }
       choosedEndHour(endTime:string){
-        console.log(endTime)
            for(var i = 0; i<12;i++){
           if (endTime==this.endTimes2[i]) {this.D2=i;}
         }
@@ -90,8 +87,16 @@ export class UnbookingFormularComponent implements OnInit {
             this.D1++
             this.F[i]=this.D1;
           }
-          else{this.isCuAv=false}
+          else{this.isCuAv=true}
 
+        }
+      }
+      unbook(){
+        if(this.isCuAv==false){
+          for(var i=0; i<this.G+1;i++){
+            this.place.isAvailable[this.I][this.F[i]]=true;
+            this.placeService.updateReservation(this.reservation).subscribe();
+          }
         }
       }
 }

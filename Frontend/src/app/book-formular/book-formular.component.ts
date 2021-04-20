@@ -111,7 +111,7 @@ export class BookFormularComponent implements OnInit {
       book(){
         if(this.isCuAv==true){
           for(var i=0; i<this.G+1;i++){
-            this.place.isAvailable[this.I][this.F[i]]
+            this.place.isAvailable[this.I][this.F[i]]=true;
             this.placeService.updateReservation(this.reservation).subscribe();
           }
         }

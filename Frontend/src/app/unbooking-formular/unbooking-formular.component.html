@@ -1,14 +1,6 @@
 <h1>Rezervačný formulár pre parkovacie miesto číso {{place.id}}</h1>
 <div class="form">
 <mat-form-field appearance="fill">
-  <mat-label>Number of to days</mat-label>
-  <mat-select [(value)]="selectedNumber">
-    <mat-option [value]="number.value" *ngFor="let number of numbers">
-      {{number.value}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
     <mat-label>Day to book</mat-label>
     <mat-select [(value)]="selectedDay">
       <mat-option *ngFor="let place of place.day" [value]="place" (click)="choosedDay(selectedDay)">
