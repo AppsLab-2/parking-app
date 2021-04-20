@@ -14,10 +14,16 @@
     <tr *ngFor="let i of timeIndexes">
       <td>{{place.time[i]}}</td>
       <td *ngFor="let j of dateIndexes">
+        <div *ngIf="place.isAvailable[j][i]; else elseB">
+          {{place.isAvailable[j][i]}}
+        </div>
+      <ng-template #elseB>
         {{place.isAvailable[j][i]}}
+      </ng-template>
       </td>
       </tr>
 
   </table>
   <button routerLink="/book-form/{{place.id}}"  mat-raised-button color="primary">Book</button>
+  <button routerLink="/unbook-form/{{place.id}}"  mat-raised-button color="primary" *ngIf="">Unbook</button>
 <button mat-raised-button color="primary" (click)="goBack()" class="back">go back</button>
