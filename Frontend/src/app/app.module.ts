@@ -19,6 +19,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { ParkingLotComponent } from './parking-lot/parking-lot.component';
+import { UnbookingFormularComponent } from './unbooking-formular/unbooking-formular.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
     DetailPageComponent,
     MessagesComponent,
     BookFormularComponent,
+    ParkingLotComponent,
+    UnbookingFormularComponent,
     
   ],
   imports: [
@@ -42,7 +47,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatDialogModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

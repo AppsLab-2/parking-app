@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FEPlace, ParkingPlace,Reservation} from '../place';
-import {PlaceService} from '../place.service'
+import {FEPlace, ParkingPlace,Reservation} from '../models/place';
+import {PlaceService} from '../services/place.service'
 
 @Component({
   selector: 'app-dashboard',
@@ -58,8 +58,6 @@ compareTime(){
   else if(this.today.getHours()>=22&&this.today.getHours()<0){
     this.I=11
   }
- else{this.I=0}
- console.log(this.I);
   }
 
 }

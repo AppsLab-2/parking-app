@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {FEPlace, Reservation } from '../place';
-import {PlaceService} from '../place.service'
+import {FEPlace, Reservation } from '../models/place';
+import {PlaceService} from '../services/place.service'
 
 @Component({
   selector: 'app-detail-page',

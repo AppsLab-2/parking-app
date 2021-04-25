@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { catchError, distinctUntilChanged, groupBy, map, mergeMap, reduce, tap } from 'rxjs/operators';
 import { from, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FEPlace, ParkingPlace, Reservation } from './place';
-import { MessageService } from './message.service';
+import { FEPlace, ParkingPlace, Reservation } from '../models/place';
+import { MessageService } from '../message.service';
+import { url } from '../models/url';
 
 @Injectable({ providedIn: 'root' })
 export class PlaceService {
+  URL = url;
+  private placesUrl = this.URL;
   constructor(private messageService: MessageService,  private http: HttpClient) { }
-  private placesUrl = 'http://localhost:8081/places';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -79,11 +81,10 @@ export class PlaceService {
       catchError(this.handleError<any>('updatePlace'))
     );
   }
-}
-
-function reduceToArray<T>() {
-  return reduce((acc: T[], val: T) => {
-    acc.push(val);
-    return acc;
-  }, [] as T[])
+  updateReservation(reservation: Reservation):Observable<any>{
+    return this.http.put(this.placesUrl, reservation, this.httpOptions).pipe(
+      tap(_=>this.log(`updated reservations id=${reservation.id}`)),
+      catchError(this.handleError<any>('updateReservation'))
+    );
+  }
 }
