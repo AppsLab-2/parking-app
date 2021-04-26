@@ -14,4 +14,9 @@ public class ReservationServicelpml implements ReservationService {
     public void saveReservation(Reservation reservation) {
         reservationRepository.save(reservation);
     }
+
+    @Override
+    public Reservation updateReservation(int reservationId, Reservation reservation) {
+        return null;
+    }
 }
