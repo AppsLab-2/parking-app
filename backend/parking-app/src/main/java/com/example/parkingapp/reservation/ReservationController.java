@@ -2,10 +2,7 @@ package com.example.parkingapp.reservation;
 
 import com.example.parkingapp.parkingPlace.ParkingPlace;
 import com.example.parkingapp.parkingPlace.ParkingPlaceService;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 public class ReservationController {
     ReservationService reservationService;
@@ -18,9 +15,8 @@ public class ReservationController {
     public void postReservation(@RequestBody Reservation reservation){
         reservationService.saveReservation(reservation);
 }
-    @PutMapping(value = "/{reservationId}")
+    @PutMapping(value = "/putReservation")
     public Reservation updateReservation(@PathVariable("reservationId") int ReservationId, @RequestBody Reservation reservation){
         return reservationService.updateReservation(ReservationId, reservation);
     }
-
 }

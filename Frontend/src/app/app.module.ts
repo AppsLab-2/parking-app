@@ -22,6 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { ParkingLotComponent } from './parking-lot/parking-lot.component';
 import { UnbookingFormularComponent } from './unbooking-formular/unbooking-formular.component';
+import { FilterComponent } from './filter/filter.component';
+import { MatSliderModule } from  '@angular/material/slider'
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { UnbookingFormularComponent } from './unbooking-formular/unbooking-formu
     BookFormularComponent,
     ParkingLotComponent,
     UnbookingFormularComponent,
-    
+    FilterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { UnbookingFormularComponent } from './unbooking-formular/unbooking-formu
     MatDialogModule,
     MatSelectModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

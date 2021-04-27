@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { filter } from 'rxjs/operators';
 import {FEPlace, ParkingPlace,Reservation} from '../models/place';
 import {PlaceService} from '../services/place.service'
 
@@ -9,14 +10,14 @@ import {PlaceService} from '../services/place.service'
 })
 export class DashboardComponent implements OnInit {
   places: FEPlace[];
-  constructor(private placeService: PlaceService)  {}
   today: Date;
+  constructor(private placeService: PlaceService)  {}
   ngOnInit(): void {
     this.getPlaces();
     this.compareTime();
   }
   getPlaces(): void{
-  this.placeService.getPlaces()
+  this.placeService.getPlacesAlt()
   .subscribe(place => this.places = place)
   }
   I:number;
@@ -52,12 +53,12 @@ compareTime(){
   else if(this.today.getHours()>=18&&this.today.getHours()<20){
     this.I=9
   }
-  else if(this.today.getHours()>20&&this.today.getHours()<22){
+  else if(this.today.getHours()>=20&&this.today.getHours()<22){
     this.I=10
   }
-  else if(this.today.getHours()>=22&&this.today.getHours()<0){
+  else if(this.today.getHours()>=22&&this.today.getHours()<24){
     this.I=11
   }
-  }
-
 }
+}
+

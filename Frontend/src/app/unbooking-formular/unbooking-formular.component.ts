@@ -25,7 +25,7 @@ export class UnbookingFormularComponent implements OnInit {
         const id = +this.route.snapshot.paramMap.get('id');
         //this.placeService.getPlace(id)
         //  .subscribe(place => this.place = place);
-        this.placeService.getPlaces()
+        this.placeService.getPlacesAlt()
           .subscribe(places => this.place = places.find(place => place.id === id));
       }
       startTimes: times[]=[
@@ -65,7 +65,7 @@ export class UnbookingFormularComponent implements OnInit {
       D1:number;
       D2:number;
       G:number;
-      F:number[];
+      F:number[]=[];
       isCuAv:boolean=false;
       choosedDay(day:string){
         for(var i = 0; i<7;i++){
@@ -95,7 +95,6 @@ export class UnbookingFormularComponent implements OnInit {
         if(this.isCuAv==false){
           for(var i=0; i<this.G+1;i++){
             this.place.isAvailable[this.I][this.F[i]]=true;
-            this.placeService.updateReservation(this.reservation).subscribe();
           }
         }
       }

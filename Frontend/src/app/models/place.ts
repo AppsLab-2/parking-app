@@ -5,7 +5,7 @@ export interface ParkingPlace {
 export interface Reservation{
   id:number;
   available: boolean;
-  day:Date;
+  day:string;
   startTime:string;
   endTime:string;
 }
