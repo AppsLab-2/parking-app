@@ -3,7 +3,7 @@ package com.example.parkingapp.reservation;
 import com.example.parkingapp.parkingPlace.ParkingPlace;
 import com.example.parkingapp.parkingPlace.ParkingPlaceService;
 import org.springframework.web.bind.annotation.*;
-
+@RestController
 public class ReservationController {
     ReservationService reservationService;
 
@@ -15,7 +15,7 @@ public class ReservationController {
     public void postReservation(@RequestBody Reservation reservation){
         reservationService.saveReservation(reservation);
 }
-    @PutMapping(value = "/putReservation")
+    @PutMapping(value = "/putReservation/{reservationId}")
     public Reservation updateReservation(@PathVariable("reservationId") int ReservationId, @RequestBody Reservation reservation){
         return reservationService.updateReservation(ReservationId, reservation);
     }

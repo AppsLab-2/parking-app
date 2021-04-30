@@ -20,18 +20,10 @@ export class BookFormularComponent implements OnInit {
   reservations:Reservation;
   constructor(    private location: Location,private placeService: PlaceService,    private route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.getPlace();
     this.getPlaces();
   }
   goBack(): void{
     this.location.back();
-      }
-      getPlace(): void {
-        const id = +this.route.snapshot.paramMap.get('id');
-        //this.placeService.getPlace(id)
-        //  .subscribe(place => this.place = place);
-        this.placeService.getPlacesAlt()
-          .subscribe(places => this.place = places.find(place => place.id === id));
       }
       getPlaces():void{
         const id = +this.route.snapshot.paramMap.get('id');
@@ -47,34 +39,8 @@ export class BookFormularComponent implements OnInit {
         {value: 6},
         {value: 7},
       ];
-      startTimes: times[]=[
-        {time:"00:00:00"},
-        {time:"02:00:00"},
-        {time:"04:00:00"},
-        {time:"06:00:00"},
-        {time:"08:00:00"},
-        {time:"10:00:00"},
-        {time:"12:00:00"},
-        {time:"14:00:00"},
-        {time:"16:00:00"},
-        {time:"18:00:00"},
-        {time:"20:00:00"},
-        {time:"22:00:00"}
-      ]
-      endTimes: times[]=[
-        {time:"02:00:00"},
-        {time:"04:00:00"},
-        {time:"06:00:00"},
-        {time:"08:00:00"},
-        {time:"10:00:00"},
-        {time:"12:00:00"},
-        {time:"14:00:00"},
-        {time:"16:00:00"},
-        {time:"18:00:00"},
-        {time:"20:00:00"},
-        {time:"22:00:00"},
-        {time:"00:00:00"},
-      ]/* Dočasné, neskôr to zmením aby tu tieto objekty zbytočne nezavadzali*/
+      daysIndexes = [0, 12, 24, 36, 48, 60, 72];
+      timesIndexes = [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11];
       selectedNumber:number=this.numbers[0].value;
       selectedDay:string;
       selectedStartTime:string;
@@ -121,7 +87,7 @@ export class BookFormularComponent implements OnInit {
         if(this.isCuAv==true){
           for(var i=0; i<this.G+1;i++){
             this.places.reservation[this.F[i]].available=false;
-            this.placeService.updateReservation(this.places.reservation[this.F[i]]).subscribe()
+            this.placeService.updateReservation(this.places.reservation[this.F[i]]).subscribe();
           }
         }
         console.log(this.place.isAvailable)

@@ -23,7 +23,8 @@ import { MatTableModule } from '@angular/material/table';
 import { ParkingLotComponent } from './parking-lot/parking-lot.component';
 import { UnbookingFormularComponent } from './unbooking-formular/unbooking-formular.component';
 import { FilterComponent } from './filter/filter.component';
-import { MatSliderModule } from  '@angular/material/slider'
+import { MatSliderModule } from  '@angular/material/slider';
+import { LoginFormularComponent } from './login-formular/login-formular.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatSliderModule } from  '@angular/material/slider'
     ParkingLotComponent,
     UnbookingFormularComponent,
     FilterComponent,
+    LoginFormularComponent,
 
   ],
   imports: [
@@ -52,7 +54,7 @@ import { MatSliderModule } from  '@angular/material/slider'
     MatSelectModule,
     MatIconModule,
     MatTableModule,
-    MatSliderModule
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

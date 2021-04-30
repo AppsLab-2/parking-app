@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { filter } from 'rxjs/operators';
 import {FEPlace, ParkingPlace,Reservation} from '../models/place';
-import {PlaceService} from '../services/place.service'
+import {PlaceService} from '../services/place.service';
+import { filter1 } from '../filter/filter.component'
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +11,8 @@ import {PlaceService} from '../services/place.service'
 export class DashboardComponent implements OnInit {
   places: FEPlace[];
   today: Date;
+  filter2=filter1;
+  dashboardFilter=this.filter2
   constructor(private placeService: PlaceService)  {}
   ngOnInit(): void {
     this.getPlaces();

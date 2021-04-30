@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, distinctUntilChanged, groupBy, map, mergeMap, reduce, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { from, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FEPlace, ParkingPlace, Reservation } from '../models/place';
@@ -74,7 +74,7 @@ export class PlaceService {
     return this.http.post(this.placesUrl, place, this.httpOptions);
   }
   updateReservation(reservation: Reservation):Observable<any>{
-    return this.http.put<Reservation>(this.reservationUrl, reservation, this.httpOptions).pipe(
+    return this.http.put<Reservation>(this.reservationUrl+"/"+reservation.id, reservation, this.httpOptions).pipe(
       tap(_=>this.log(`updated reservations id=${reservation.id}`)),
       catchError(this.handleError<any>('updateReservation')),
     );

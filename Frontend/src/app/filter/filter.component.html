@@ -1,1 +1,26 @@
-<button mat-raised-button color="primary" click="filter()">Filter</button>
+<mat-form-field appearance="fill">
+    <mat-label>Day to book</mat-label>
+    <mat-select [(value)]="selectedDay">
+      <mat-option *ngFor="let i of timeIndexes" [value]="places[0].reservation[i].day" (click)="choosedDay(selectedDay)">
+        {{places[0].reservation[i].day}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Start time</mat-label>
+    <mat-select [(value)]="selectedStartTime">
+      <mat-option *ngFor="let i of timesIndexes" [value]="places[0].reservation[i].startTime" (click)="choosedStartHour(selectedStartTime)">
+        {{places[0].reservation[i].startTime}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>End time</mat-label>
+    <mat-select [(value)]="selectedEndTime">
+      <mat-option *ngFor="let i of timesIndexes" [value]="places[0].reservation[i].endTime" (click)="choosedEndHour(selectedEndTime)">
+        {{places[0].reservation[i].endTime}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+<button mat-raised-button color="primary" (click)="filter()">Filter</button>
+<button mat-raised-button color="primary" (click)="current()">Cancel filter</button>
