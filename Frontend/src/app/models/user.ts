@@ -5,7 +5,4 @@ export interface Users{
     id:number;
     name:string;
     password:string;
-    reservations: Reservation;
-    parkinglots:ParkingLot;
-    isAdmin:boolean;
 }
