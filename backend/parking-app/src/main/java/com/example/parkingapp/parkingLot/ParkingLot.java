@@ -44,4 +44,5 @@ public class ParkingLot {
     public void setParkingPlace(List<ParkingPlace> parkingPlace) {
         this.parkingPlace = parkingPlace;
     }
+
 }

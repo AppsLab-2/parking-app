@@ -1,5 +1,6 @@
 package com.example.parkingapp.user;
 
+import com.example.parkingapp.parkingPlace.ParkingPlace;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -26,5 +27,8 @@ public class UserServicelpml implements UserService{
         return this.userRepository.save(user);
     }
 
-
+    @Override
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 }
