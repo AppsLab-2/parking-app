@@ -26,7 +26,7 @@ export class DetailPageComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     //this.placeService.getPlace(id)
     //  .subscribe(place => this.place = place);
-    this.placeService.getPlaces()
+    this.placeService.getPlacesAlt()
       .subscribe(places => this.place = places.find(place => place.id === id));
   }
   goBack(): void{
@@ -34,6 +34,6 @@ this.location.back();
 
   }
   click():void{
-    
+
   }
 }

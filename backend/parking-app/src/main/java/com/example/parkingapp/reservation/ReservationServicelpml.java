@@ -16,7 +16,9 @@ public class ReservationServicelpml implements ReservationService {
     }
 
     @Override
-    public Reservation updateReservation(int reservationId, Reservation reservation) {
-        return null;
+    public Reservation updateReservation(long reservationId, Reservation reservation) {
+        Reservation reservationUd = reservationRepository.findById(reservationId).orElseThrow();
+        reservation.setParkingPlace(reservationUd.getParkingPlace());
+        reservationRepository.save(reservation); return reservation;
     }
 }

@@ -1,13 +1,15 @@
 <mat-card>
+  <app-filter></app-filter>
   <mat-card-content>
     <mat-tab-group>
       <mat-tab label="Pondelok">
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
-      <mat-grid-tile *ngFor="let place of places" id="riadok">
+      <mat-grid-tile *ngFor="let place of places; index as i" id="riadok">
+        <div *ngIf="dashboardFilter[i]">
       <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="place.isAvailable[0][I]; else elseB"><span>{{place.id}}</span></button>
       <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button></ng-template>
-      </mat-grid-tile>
-    
+    </div>  
+    </mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
   <mat-tab label="Utorok">
@@ -16,7 +18,7 @@
       <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="place.isAvailable[1][I]; else elseB"><span>{{place.id}}</span></button>
       <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button></ng-template>
       </mat-grid-tile>
-    
+
     </mat-grid-list>
   </mat-tab>
   <mat-tab label="Streda">
@@ -25,7 +27,7 @@
       <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="place.isAvailable[2][I]; else elseB"><span>{{place.id}}</span></button>
       <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button></ng-template>
       </mat-grid-tile>
-    
+
     </mat-grid-list>
   </mat-tab>
   <mat-tab label="Štvrtok">
@@ -34,7 +36,7 @@
       <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="place.isAvailable[3][I]; else elseB"><span>{{place.id}}</span></button>
       <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button></ng-template>
       </mat-grid-tile>
-    
+
     </mat-grid-list>
   </mat-tab>
   <mat-tab label="Piatok">
@@ -43,7 +45,7 @@
       <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="place.isAvailable[4][I]; else elseB"><span>{{place.id}}</span></button>
       <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button></ng-template>
       </mat-grid-tile>
-    
+
     </mat-grid-list>
   </mat-tab>
   <mat-tab label="Sobota">
@@ -52,7 +54,7 @@
       <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="place.isAvailable[5][I]; else elseB"><span>{{place.id}}</span></button>
       <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button></ng-template>
       </mat-grid-tile>
-    
+
     </mat-grid-list>
   </mat-tab>
   <mat-tab label="Nedeľa">
@@ -61,7 +63,7 @@
       <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="place.isAvailable[6][I]; else elseB"><span>{{place.id}}</span></button>
       <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button></ng-template>
       </mat-grid-tile>
-    
+
     </mat-grid-list>
   </mat-tab>
   </mat-tab-group>
