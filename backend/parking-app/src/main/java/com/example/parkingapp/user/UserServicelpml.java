@@ -15,7 +15,7 @@ public class UserServicelpml implements UserService{
         user.setId(0);
         return this.userRepository.save(user);
     }
-/*
+
     @Override
     public Optional<User> getUserByUsername(String username) {
         return this.userRepository.findByUsername(username);
@@ -26,5 +26,5 @@ public class UserServicelpml implements UserService{
         return this.userRepository.save(user);
     }
 
- */
+
 }
