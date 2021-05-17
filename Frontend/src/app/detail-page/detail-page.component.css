@@ -1,23 +1,24 @@
-.back{
-    position: fixed;
-    right: 100px;
-    bottom: 100px;
-}
-#book{
-    position: fixed;
-    right: 200px;
-    bottom: 100px
-}
 table{
     position: fixed;
     top: 250px;
     left: 750px;
     right: 200px;
 }
+.Login{
+    position: fixed;
+    right: 10px;
+    top: 125px;
+}
 td,tr,table{
     border: 1px solid black;
     border-collapse: collapse;
+    border-spacing: 0px;
 }
-.td{
+#true{
+    background-color: green;
+    color: green;
+}
+#false{
     background-color: red;
+    color: red;
 }

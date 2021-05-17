@@ -10,13 +10,13 @@ public class ParkingLot {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String name;
-
     public ParkingLot() {
     }
 
-    public ParkingLot(Long id, String name){
+    public ParkingLot(Long id, String name, List<ParkingPlace> parkingPlace ){
         this.id = id;
         this.name = name;
+        this.parkingPlace = parkingPlace;
     }
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL)
     private List<ParkingPlace> parkingPlace;

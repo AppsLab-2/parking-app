@@ -1,4 +1,4 @@
-<div *ngIf="place" >
+<div *ngIf="place;">
   <h2>Detail of parking place number {{place.id}}</h2>
   <table class="table">
     <TR>
@@ -14,16 +14,20 @@
     <tr *ngFor="let i of timeIndexes">
       <td>{{place.time[i]}}</td>
       <td *ngFor="let j of dateIndexes">
-        <div *ngIf="place.isAvailable[j][i]; else elseB">
+        <div *ngIf="place.isAvailable[j][i]; else elseB" id="true">
           {{place.isAvailable[j][i]}}
         </div>
       <ng-template #elseB>
+        <div id="false">
         {{place.isAvailable[j][i]}}
+      </div>
       </ng-template>
       </td>
       </tr>
-
   </table>
-  <button routerLink="/book-form/{{place.id}}"  mat-raised-button color="primary">Book</button>
-  <button routerLink="/unbook-form/{{place.id}}"  mat-raised-button color="primary">Unbook</button>
-<button mat-raised-button color="primary" (click)="goBack()" class="back">go back</button>
+ <div [ngSwitch]="isCuAv">
+ <button routerLink="/unbook-form/{{place.id}}"  mat-raised-button color="primary" *ngSwitchCase=1>Unbook</button></div>
+<button mat-raised-button color="primary" (click)="goBack()" >Back</button>
+<button routerLink="/parking-lot" mat-raised-button color="primary" id="dashboard">Main page</button>
+<button routerLink="/login-form" mat-raised-button color="primary" class="Login">Login</button>
+<app-book-formular></app-book-formular>

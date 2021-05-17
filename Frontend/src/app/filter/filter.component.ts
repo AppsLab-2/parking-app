@@ -32,9 +32,9 @@ export class FilterComponent implements OnInit {
     timesIndexes = [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11];
     filter(){
       this.G=this.D2-this.D1;
-      for(var j=0;j<16;j++){
+      for(var j=0;j<this.places.length;j++){
         for(var i=this.D1;i<this.D2+1;i++){
-        if(this.places[j].reservation[i].available==true){console.log(this.places[j].reservation[i])}
+        if(this.places[j].reservation[i].available==true){console.log(this.places[j].reservation[i].available)}
         else{filter1[j]=false}
         }
       }
@@ -51,6 +51,7 @@ export class FilterComponent implements OnInit {
         if (startTime==this.places[0].reservation[i].startTime) {this.D1=i;}
       }
    console.log(this.selectedStartTime,this.D1) 
+   console.log(this.places[16])
   }
   choosedEndHour(endTime:string){
     for(var i = this.I; i>this.I-12;i--){
@@ -59,11 +60,10 @@ export class FilterComponent implements OnInit {
     console.log(this.selectedEndTime,this.D2)
 }
 current(){
-  console.log("Hello");
-  console.log(this.places.length);
   for(var i=0;i<this.places.length;i++)
   {
     filter1[i]=true;
+
   }
 }
 }

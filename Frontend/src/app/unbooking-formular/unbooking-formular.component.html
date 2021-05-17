@@ -1,30 +1,37 @@
-<h1>Rezervačný formulár pre parkovacie miesto číso {{place.id}}</h1>
 <div class="form">
 <mat-form-field appearance="fill">
-    <mat-label>Day to book</mat-label>
-    <mat-select [(value)]="selectedDay">
-      <mat-option *ngFor="let place of place.day" [value]="place" (click)="choosedDay(selectedDay)">
-        {{place}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <mat-label>Number of to days</mat-label>
+  <mat-select [(value)]="selectedNumber">
+    <mat-option [value]="number.value" *ngFor="let number of numbers">
+      {{number.value}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Day to book</mat-label>
+  <mat-select [(value)]="selectedDay">
+    <mat-option *ngFor="let i of daysIndexes" [value]="places.reservation[i].day" (click)="choosedDay(selectedDay)">
+      {{places.reservation[i].day}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Start time</mat-label>
     <mat-select [(value)]="selectedStartTime">
-      <mat-option *ngFor="let ST of startTimes" [value]="ST.time" (click)="choosedStartHour(selectedStartTime)">
-        {{ST.time}}
+      <mat-option *ngFor="let i of timesIndexes" [value]="places.reservation[i].startTime" (click)="choosedStartHour(selectedStartTime)">
+        {{places.reservation[i].startTime}}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>End time</mat-label>
     <mat-select [(value)]="selectedEndTime">
-      <mat-option *ngFor="let ET of endTimes" [value]="ET.time" (click)="choosedEndHour(selectedEndTime)">
-        {{ET.time}}
+      <mat-option *ngFor="let i of timesIndexes" [value]="places.reservation[i].endTime" (click)="choosedEndHour(selectedEndTime)">
+        {{places.reservation[i].endTime}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
-<button mat-raised-button color="primary" routerLink="/dashboard" id="book" (click)="unbook()">Rezervovať</button>
+<button mat-raised-button color="primary" routerLink="/dashboard" id="book" (click)="book()">Unbook</button>
 <button mat-raised-button color="primary" (click)="goBack()" class="back" id="back">Back</button>
-<button routerLink="/dashboard" mat-raised-button color="primary" id="dashboard">Hlavná stránka</button>
+<button routerLink="/dashboard" mat-raised-button color="primary" id="dashboard">Main page</button>

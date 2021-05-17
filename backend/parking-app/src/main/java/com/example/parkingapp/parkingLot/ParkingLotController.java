@@ -18,7 +18,9 @@ public class ParkingLotController {
     }
 
     @GetMapping("/parkingLot")
-    public void getParkingLot(){}
+    public Iterable<ParkingLot> parkingLot() {
+        return parkingLotService.getAllParkingLots();
+    }
 
     @PutMapping(value = "/putParkingLot/{parkingLotId}")
     public ParkingLot updateParkingLot(@PathVariable("parkingLotId") int ParkingLotId, @RequestBody ParkingLot parkingLot){

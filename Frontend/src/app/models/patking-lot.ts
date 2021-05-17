@@ -1,9 +1,17 @@
 import { from } from 'rxjs';
-import { ParkingPlace } from './place';
+import { ParkingPlace, Reservation } from './place';
 import { Users } from './user'
-export interface ParkingLot{
+export interface parkingLot{
     id:number;
     name:string;
-    parkingPlace:ParkingPlace
-    admin:Users;
+    parkingPlace:ParkingPlace[];
 }
+export class ParkingLot {
+
+    constructor(
+        public id:number,
+        public name:string,
+        public parkingPlaces?:ParkingPlace[],
+    ){}
+  }
+  

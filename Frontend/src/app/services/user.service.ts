@@ -1,20 +1,43 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, tap } from 'rxjs/operators';
-import {  Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService } from '../message.service';
-import { Users } from '../models/user'
-import { url3 } from '../models/url'
-
+import { BehaviorSubject, from, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  URL=url3;
-  private userURL  = this.URL
-  constructor(private http: HttpClient,private messageService: MessageService) { }
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+
+  token: BehaviorSubject<string> = new BehaviorSubject(null);
+  constructor(private readonly http: HttpClient) { }
+  getToken(): string {
+    return this.token.getValue();
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
+
+  login(username: string, password: string): Observable<any> {
+    const info = btoa(`${username}:${password}`);
+    const token = `Basic ${info}`;
+    const options = {
+      headers: new HttpHeaders({
+        Authorization: token,
+        'X-Requested-With' : 'XMLHttpRequest'
+      }),
+      withCredentials: true
+    };
+    return this.http.get(`${"http://localhost:8081/user"}`, options).pipe(
+      tap(() => this.token.next(token))
+    );
+  }
+  register(username: string, password: string): Observable<any> {
+    const user = { username, password };
+    return this.http.post(`${"http://localhost:8081/postUser"}`, user);
+  }
+  logout(): void {
+    this.token = null;
+  }
+
 }

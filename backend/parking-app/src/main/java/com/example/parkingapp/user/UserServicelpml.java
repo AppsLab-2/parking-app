@@ -1,15 +1,19 @@
 package com.example.parkingapp.user;
 
 import com.example.parkingapp.parkingPlace.ParkingPlace;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+
+
 
 @Service
 public class UserServicelpml implements UserService{
     UserRepository userRepository;
-
-    public UserServicelpml(UserRepository userRepository){
+    private PasswordEncoder encoder;
+    public UserServicelpml(UserRepository userRepository, PasswordEncoder encoder){
         this.userRepository = userRepository;
+        this.encoder = encoder;
     }
     @Override
     public User addUser(User user) {
@@ -29,6 +33,7 @@ public class UserServicelpml implements UserService{
 
     @Override
     public void saveUser(User user) {
+        user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 }

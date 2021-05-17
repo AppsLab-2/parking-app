@@ -1,0 +1,22 @@
+      <h1>Hero Form</h1>
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput>
+          <mat-error>
+            Name is required
+          </mat-error>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">    
+      <mat-label>Number of parking places</mat-label>
+        <input matInput >
+            <mat-error></mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">    
+    <mat-label>Number of assigned parking places</mat-label>
+        <input matInput>
+            <mat-error></mat-error>
+    </mat-form-field><br>
+    </form>
+<button mat-raised-button color="primary" (click)="create()" type="submit">Create</button>
+<button mat-raised-button routerLink="/parking-lot" color="primary">Main page</button>

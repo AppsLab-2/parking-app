@@ -10,8 +10,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetailPageComponent } from './detail-page/detail-page.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { InMemoryDataService } from './in-memory-data.service';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BookFormularComponent } from './book-formular/book-formular.component';
@@ -25,6 +23,16 @@ import { UnbookingFormularComponent } from './unbooking-formular/unbooking-formu
 import { FilterComponent } from './filter/filter.component';
 import { MatSliderModule } from  '@angular/material/slider';
 import { LoginFormularComponent } from './login-formular/login-formular.component';
+import { ParkingLotFormComponent } from './parking-lot-form/parking-lot-form.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ParkingLot } from './models/patking-lot';
+import { ParkingLotService } from './services/parking-lot.service';
+import { PlaceService } from './services/place.service';
+import { AuthInterceptor } from './auth.interceptor/auth.interceptor';
+import { UserService } from './services/user.service';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +45,8 @@ import { LoginFormularComponent } from './login-formular/login-formular.componen
     UnbookingFormularComponent,
     FilterComponent,
     LoginFormularComponent,
+    ParkingLotFormComponent,
+    RegisterFormComponent,
 
   ],
   imports: [
@@ -55,8 +65,16 @@ import { LoginFormularComponent } from './login-formular/login-formular.componen
     MatIconModule,
     MatTableModule,
     MatSliderModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

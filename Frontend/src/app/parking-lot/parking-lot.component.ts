@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ParkingLotService } from '../services/parking-lot.service';
+import { parkingLot } from '../models/patking-lot';
 
 @Component({
   selector: 'app-parking-lot',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parking-lot.component.css']
 })
 export class ParkingLotComponent implements OnInit {
-  constructor() { }
+  parkingLot:parkingLot[];
+  constructor(private lotService:ParkingLotService) { }
 
   ngOnInit(): void {
-    
+    this.getLots();
   }
+  getLots(): void{
+    this.lotService.getParkinglot()
+    .subscribe(lot => this.parkingLot = lot)
+    }
 }

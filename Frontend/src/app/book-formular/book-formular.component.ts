@@ -6,9 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 interface Number {
   value: number;
 }
-interface times{
-  time:string;
-}
+
 @Component({
   selector: 'app-book-formular',
   templateUrl: './book-formular.component.html',
@@ -18,6 +16,27 @@ export class BookFormularComponent implements OnInit {
   place: FEPlace;
   places:ParkingPlace;
   reservations:Reservation;
+  numbers: Number[] = [
+    {value: 1},
+    {value: 2},
+    {value: 3},
+    {value: 4},
+    {value: 5},
+    {value: 6},
+    {value: 7},
+  ];
+  daysIndexes = [0, 12, 24, 36, 48, 60, 72];
+  timesIndexes = [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11];
+  selectedNumber:number=this.numbers[0].value;
+  selectedDay:string;
+  selectedStartTime:string;
+  selectedEndTime:string;
+  I:number;
+  D1:number;
+  D2:number;
+  G:number;
+  F:number[]=[];
+  isCuAv:boolean=true;
   constructor(    private location: Location,private placeService: PlaceService,    private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.getPlaces();
@@ -30,31 +49,7 @@ export class BookFormularComponent implements OnInit {
         this.placeService.getPlaces()
           .subscribe(places => this.places = places.find(place => place.id === id));
       }
-      numbers: Number[] = [
-        {value: 1},
-        {value: 2},
-        {value: 3},
-        {value: 4},
-        {value: 5},
-        {value: 6},
-        {value: 7},
-      ];
-      daysIndexes = [0, 12, 24, 36, 48, 60, 72];
-      timesIndexes = [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11];
-      selectedNumber:number=this.numbers[0].value;
-      selectedDay:string;
-      selectedStartTime:string;
-      selectedEndTime:string;
-      I:number;
-      D1:number;
-      D2:number;
-      G:number;
-      F:number[]=[];
-      isCuAv:boolean=true;
       choosedDay(day:string){
-        /*for(var i = 0; i<7;i++){
-          if (day==this.place.day[i]) {this.I=i;}
-        }*/
         for(var i=11; i<84; i++){
           if(this.selectedDay==this.places.reservation[i].day){this.I=i;}
         }
@@ -76,6 +71,7 @@ export class BookFormularComponent implements OnInit {
         if(this.G>=0&&this.places.reservation[this.D1].available==true&&this.D1<=this.D2){
           this.F[i]=this.D1;
           this.D1++;
+          this.isCuAv=true;
         }
         else{
           this.isCuAv=false;

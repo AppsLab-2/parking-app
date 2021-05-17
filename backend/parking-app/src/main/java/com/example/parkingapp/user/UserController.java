@@ -7,10 +7,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     UserService userService;
 
     @GetMapping("/user")
     public void getUser() {
+
     }
 
     @PostMapping("/postUser")

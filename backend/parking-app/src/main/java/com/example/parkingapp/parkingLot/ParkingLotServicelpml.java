@@ -20,4 +20,8 @@ public class ParkingLotServicelpml implements ParkingLotService{
     public ParkingLot updateParkingLot(long parkingLotId, ParkingLot parkingLot) {
         parkingLotRepository.save(parkingLot); return parkingLot;
     }
+    @Override
+    public Iterable<ParkingLot> getAllParkingLots() {
+        return parkingLotRepository.findAll();
+    }
 }

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FEPlace, ParkingPlace,Reservation} from '../models/place';
 import {PlaceService} from '../services/place.service';
-import { filter1 } from '../filter/filter.component'
+import { filter1 } from '../filter/filter.component';
+import { parkingLot } from '../models/patking-lot';
+import { ParkingLotService } from '../services/parking-lot.service'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,18 +14,33 @@ import { filter1 } from '../filter/filter.component'
 export class DashboardComponent implements OnInit {
   places: FEPlace[];
   today: Date;
+  parkingLot:parkingLot;
   filter2=filter1;
+  I:number;
+  place:ParkingPlace[]=[];
+  D:number[]=[]
+  reservation:Reservation[]=[];
   dashboardFilter=this.filter2
-  constructor(private placeService: PlaceService)  {}
+  constructor(private placeService: PlaceService, private parkingLotservice: ParkingLotService,private route: ActivatedRoute)  {}
   ngOnInit(): void {
     this.getPlaces();
     this.compareTime();
+    this.getParkingLot();
+    this.getPlace();
   }
   getPlaces(): void{
   this.placeService.getPlacesAlt()
   .subscribe(place => this.places = place)
   }
-  I:number;
+  getPlace(): void{
+    this.placeService.getPlaces()
+    .subscribe(place =>{this.place=place;this.xd();})
+    }
+  getParkingLot(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.parkingLotservice.getParkinglot()
+      .subscribe(parkingLots => this.parkingLot = parkingLots.find(parkingLot => parkingLot.id === id));
+  }
 compareTime(){
   this.today = new Date();
   if (this.today.getHours()>=0&&this.today.getHours()<2) {
@@ -61,6 +79,9 @@ compareTime(){
   else if(this.today.getHours()>=22&&this.today.getHours()<24){
     this.I=11
   }
+}
+xd(){
+  console.log(this.parkingLot)
 }
 }
 

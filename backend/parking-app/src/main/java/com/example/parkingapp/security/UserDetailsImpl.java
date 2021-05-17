@@ -1,8 +1,8 @@
 package com.example.parkingapp.security;
 
+import com.example.parkingapp.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -16,10 +16,6 @@ public class UserDetailsImpl implements UserDetails {
         this.user = user;
     }
 
-    public UserDetailsImpl(com.example.parkingapp.user.User user) {
-
-        this.user = null;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
