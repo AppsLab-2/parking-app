@@ -12,10 +12,15 @@ public class ParkingPlaceController {
     @GetMapping("/places")
     public Iterable<ParkingPlace> parkingPlace(){
         return parkingPlaceService.getAllParkingPlaces();
-
     }
+
     @PostMapping(value = "/postPlace")
     public void postParkingPlace(@RequestBody ParkingPlace parkingPlace){
         parkingPlaceService.saveParkingPlace(parkingPlace);
-}
+    }
+
+    @DeleteMapping(value = "/delete")
+    public void ParkingPlace(@RequestBody long id) {
+        parkingPlaceService.deleteParkingPlace(id);
+    }
 }

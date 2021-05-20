@@ -18,4 +18,11 @@ public class ParkingPlaceServicelpml implements ParkingPlaceService{
     public void saveParkingPlace(ParkingPlace parkingPlace) {
         parkingPlaceRepository.save(parkingPlace);
     }
-}
+
+
+    @Override
+    public void deleteParkingPlace(long id) {
+        parkingPlaceRepository.deleteById(id);}
+    }
+
+
