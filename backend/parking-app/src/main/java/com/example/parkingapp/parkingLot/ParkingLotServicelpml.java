@@ -24,4 +24,9 @@ public class ParkingLotServicelpml implements ParkingLotService{
     public Iterable<ParkingLot> getAllParkingLots() {
         return parkingLotRepository.findAll();
     }
+
+    @Override
+    public void deleteParkingLot(long id){
+        parkingLotRepository.deleteById(id);
+    }
 }

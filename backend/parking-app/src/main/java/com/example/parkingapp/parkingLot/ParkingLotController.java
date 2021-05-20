@@ -25,6 +25,10 @@ public class ParkingLotController {
     @PutMapping(value = "/putParkingLot/{parkingLotId}")
     public ParkingLot updateParkingLot(@PathVariable("parkingLotId") int ParkingLotId, @RequestBody ParkingLot parkingLot){
         return parkingLotService.updateParkingLot(ParkingLotId, parkingLot);
-
 }
+
+    @DeleteMapping("/deleteParkingLot")
+    public void ParkingLot(@RequestBody long id){
+        parkingLotService.deleteParkingLot(id);
+    }
 }
