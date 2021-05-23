@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'parking-lot', component: ParkingLotComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'dashboard/:id', component: DashboardComponent },
-  { path: '', redirectTo: 'parking-lot', pathMatch: 'full' },
+  { path: '', redirectTo: 'login-form', pathMatch: 'full' },
   { path: 'detail/:id', component: DetailPageComponent },
   { path: 'book-form/:id', component: BookFormularComponent },
   { path: 'unbook-form/:id', component: UnbookingFormularComponent },

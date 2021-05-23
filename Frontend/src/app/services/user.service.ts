@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,16 @@ import { tap } from 'rxjs/operators';
 export class UserService {
 
   token: BehaviorSubject<string> = new BehaviorSubject(null);
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient, private readonly router: Router) { }
   getToken(): string {
     return this.token.getValue();
   }
 
   isLoggedIn(): boolean {
+    if(this.token!=null){
     return !!this.getToken();
+    }
+    else{return false}
   }
 
   login(username: string, password: string): Observable<any> {
@@ -33,11 +37,13 @@ export class UserService {
     );
   }
   register(username: string, password: string): Observable<any> {
+    console.log(this.token)
     const user = { username, password };
     return this.http.post(`${"http://localhost:8081/postUser"}`, user);
   }
   logout(): void {
     this.token = null;
+    this.router.navigateByUrl('/login-form')
   }
 
 }

@@ -23,7 +23,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if(this.userService.isLoggedIn()) {
-      console.log("gg")
       request = request.clone( {
         headers: new HttpHeaders( {
           Authorization: this.userService.getToken()!

@@ -3,16 +3,19 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { from, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FEPlace, ParkingPlace, Reservation } from '../models/place';
+import { ParkingLot } from '../models/patking-lot';
 import { MessageService } from '../message.service';
-import { url,url1 } from '../models/url';
+import { Place,SaveReservation,DeletePlace,CreatePlace } from '../models/url';
+import { ParkingLotService } from './parking-lot.service'
 
 @Injectable({ providedIn: 'root' })
 export class PlaceService {
-  URL = url;
-  URL1=url1;
-  private placesUrl = this.URL;
-  private reservationUrl = this.URL1;
-  constructor(private messageService: MessageService,  private http: HttpClient) { }
+  parkingLot:ParkingLot;
+  private placesUrl = Place;
+  private reservationUrl = SaveReservation;
+  private deletePlaceUrl=DeletePlace;
+  private addPlaceUrl=CreatePlace;
+  constructor(private messageService: MessageService,  private http: HttpClient, private parkingLotService:ParkingLotService) { }
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -70,7 +73,7 @@ export class PlaceService {
   private log(message: string) {
     this.messageService.add(`PlaceService: ${message}`);
   }
-  updatePlace(place: ParkingPlace[]): Observable<any> {
+  savePlace(place: ParkingPlace[]): Observable<any> {
     return this.http.post(this.placesUrl, place, this.httpOptions);
   }
   updateReservation(reservation: Reservation):Observable<any>{
@@ -85,4 +88,16 @@ export class PlaceService {
       tap(_ => this.log('fetched places')),
       catchError(this.handleError<ParkingPlace[]>('getPlaces', [])))
   }
+  deletePrakingPlace(parkingPlace:ParkingPlace | number): Observable<any> {
+    const id = typeof parkingPlace === 'number' ? parkingPlace : parkingPlace.id;
+    const url = `${this.deletePlaceUrl}/${id}`;
+
+    return this.http.delete<ParkingPlace>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted Parking Place id=${id}`)),
+      catchError(this.handleError<ParkingPlace>('deleteParkingPlace'))
+    );
+}
+addParkingPlace(parkingPlace:ParkingPlace,parkingLot:ParkingLot):Observable<any>{
+  return this.http.post<ParkingPlace>(this.addPlaceUrl+"/"+parkingLot.id, parkingPlace, this.httpOptions)
+}
 }

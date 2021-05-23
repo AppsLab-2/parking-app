@@ -1,20 +1,20 @@
       <h1>Hero Form</h1>
-      <form>
+      <form [formGroup]="createGroup">
         <mat-form-field appearance="fill">
           <mat-label>Name</mat-label>
-          <input matInput>
+          <input matInput formControlName="NameOfPL">
           <mat-error>
             Name is required
           </mat-error>
       </mat-form-field><br>
       <mat-form-field appearance="fill">    
       <mat-label>Number of parking places</mat-label>
-        <input matInput >
+        <input matInput formControlName="NumberOfPP" required>
             <mat-error></mat-error>
         </mat-form-field><br>
         <mat-form-field appearance="fill">    
     <mat-label>Number of assigned parking places</mat-label>
-        <input matInput>
+        <input matInput formControlName="NumberOfPPP">
             <mat-error></mat-error>
     </mat-form-field><br>
     </form>

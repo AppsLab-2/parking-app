@@ -16,6 +16,6 @@ export class AppComponent {
     }, 1000)}
     logout(){
       this.userService.logout();
-      this.router.navigateByUrl('/login-form');
+      
     }
   }

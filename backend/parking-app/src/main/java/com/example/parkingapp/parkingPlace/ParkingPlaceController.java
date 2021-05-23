@@ -14,13 +14,13 @@ public class ParkingPlaceController {
         return parkingPlaceService.getAllParkingPlaces();
     }
 
-    @PostMapping(value = "/postPlace")
-    public void postParkingPlace(@RequestBody ParkingPlace parkingPlace){
-        parkingPlaceService.saveParkingPlace(parkingPlace);
+    @PostMapping(value = "/postPlace/{parkingLotId}")
+    public void postParkingPlace(@RequestBody ParkingPlace parkingPlace,@PathVariable long parkingLotId ){
+        parkingPlaceService.saveParkingPlace(parkingPlace,parkingLotId);
     }
 
-    @DeleteMapping(value = "/delete")
-    public void ParkingPlace(@RequestBody long id) {
-        parkingPlaceService.deleteParkingPlace(id);
+    @DeleteMapping(value = "/delete/{parkingPlaceId}")
+    public void ParkingPlace(@PathVariable long parkingPlaceId) {
+        parkingPlaceService.deleteParkingPlace(parkingPlaceId);
     }
 }
