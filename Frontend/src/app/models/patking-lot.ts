@@ -6,12 +6,3 @@ export interface ParkingLot{
     name:string;
     parkingPlace:ParkingPlace[];
 }
-export class ParkingLot {
-
-    constructor(
-        public id:number,
-        public name:string,
-        public parkingPlaces?:ParkingPlace[],
-    ){}
-  }
-  

@@ -7,7 +7,7 @@
     <mat-tab-group>
       <mat-tab label={{place[0].reservation[11].day}}>
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
-      <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace;index as i" id="riadok">
+      <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace; index as i" id="riadok">
         <div *ngIf="dashboardFilter[i]">
       <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="places[i].isAvailable[0][I]; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
       <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>

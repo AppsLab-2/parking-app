@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { FEPlace,ParkingPlace,Reservation } from '../models/place';
 import { PlaceService } from '../services/place.service'
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { delay } from 'rxjs/operators';
 interface Number {
   value: number;
 }
@@ -37,7 +39,7 @@ export class BookFormularComponent implements OnInit {
   G:number;
   F:number[]=[];
   isCuAv:boolean=true;
-  constructor(    private location: Location,private placeService: PlaceService,    private route: ActivatedRoute) { }
+  constructor(    private location: Location,private placeService: PlaceService,    private route: ActivatedRoute, private readonly router: Router,) { }
   ngOnInit(): void {
     this.getPlaces();
   }
@@ -86,7 +88,6 @@ export class BookFormularComponent implements OnInit {
             this.placeService.updateReservation(this.places.reservation[this.F[i]]).subscribe();
           }
         }
-        console.log(this.place.isAvailable)
-        console.log(this.places.reservation)
+        this.router.navigateByUrl('/parking-lot')
       }
   }

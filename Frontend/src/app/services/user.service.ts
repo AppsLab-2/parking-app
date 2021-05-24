@@ -16,10 +16,8 @@ export class UserService {
   }
 
   isLoggedIn(): boolean {
-    if(this.token!=null){
+
     return !!this.getToken();
-    }
-    else{return false}
   }
 
   login(username: string, password: string): Observable<any> {
@@ -43,7 +41,7 @@ export class UserService {
   }
   logout(): void {
     this.token = null;
-    this.router.navigateByUrl('/login-form')
+    this.router.navigateByUrl('/login-form');
   }
 
 }

@@ -5,6 +5,7 @@ import { filter1 } from '../filter/filter.component';
 import { ParkingLot } from '../models/patking-lot';
 import { ParkingLotService } from '../services/parking-lot.service'
 import { ActivatedRoute } from '@angular/router';
+import { examplePlace } from '../models/example'
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  ParkinGPlace=examplePlace;
   places: FEPlace[];
   today: Date;
   parkingLot:ParkingLot;
@@ -92,7 +94,7 @@ deletePlace(place: ParkingPlace): void {
   this.placeService.deletePrakingPlace(place).subscribe();
 }
 create(){
-  this.parkingLot.parkingPlace[this.parkingLot.parkingPlace.length-1+1]=JSON.parse(JSON.stringify(this.parkingLot.parkingPlace[13]));
+  this.parkingLot.parkingPlace[this.parkingLot.parkingPlace.length-1+1]=JSON.parse(JSON.stringify(this.ParkinGPlace));
   this.parkingLot.parkingPlace[this.parkingLot.parkingPlace.length-1].id=null;
   for(var i=0;i<84;i++){
     this.parkingLot.parkingPlace[this.parkingLot.parkingPlace.length-1].reservation[i].id=null;

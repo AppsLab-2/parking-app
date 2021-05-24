@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ParkingLotService } from '../services/parking-lot.service';
 import { ParkingLot } from '../models/patking-lot';
 import { FormControl, FormGroup } from '@angular/forms';
+import { examplePlace } from '../models/example';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-parking-lot-form',
@@ -10,9 +12,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class ParkingLotFormComponent implements OnInit {
+  ParkinGPlace=examplePlace;
   parkingLot:ParkingLot[]=[];
   P:number;
-  constructor(private lotService:ParkingLotService) { }
+  constructor(private lotService:ParkingLotService, private readonly router: Router,) { }
   
   createGroup = new FormGroup({
     NumberOfPP:new FormControl(null),
@@ -35,9 +38,9 @@ export class ParkingLotFormComponent implements OnInit {
     }
     this.P=this.createGroup.value.NumberOfPP-this.createGroup.value.NumberOfPPP;
     for(var i=0;i<this.createGroup.value.NumberOfPP;i++){
-      ParkinGLot.parkingPlace[i]=JSON.parse(JSON.stringify(this.parkingLot[0].parkingPlace[13]));
+      ParkinGLot.parkingPlace[i]=JSON.parse(JSON.stringify(this.ParkinGPlace));
       ParkinGLot.parkingPlace[i].id=null;
-     for(var j=0;j<this.parkingLot[0].parkingPlace[0].reservation.length;j++){
+     for(var j=0;j<84;j++){
         if(i==0){
         ParkinGLot.parkingPlace[i].reservation[j].id=null;
       }
@@ -48,12 +51,13 @@ export class ParkingLotFormComponent implements OnInit {
   }
   for(var i=0;i<this.createGroup.value.NumberOfPPP;i++)
   {
-    for(var j=0;j<this.parkingLot[0].parkingPlace[0].reservation.length;j++){
+    for(var j=0;j<84;j++){
       ParkinGLot.parkingPlace[i].reservation[j].available=false;
     }
   }
     this.parkingLot[this.parkingLot.length-1+1]=JSON.parse(JSON.stringify(ParkinGLot))
     console.log(this.parkingLot);
     this.lotService.addParkingLot(this.parkingLot[this.parkingLot.length-1]).subscribe();
+    this.router.navigateByUrl('/parking-lot')
 }
 }
