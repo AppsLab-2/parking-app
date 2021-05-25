@@ -5,6 +5,10 @@ import com.example.parkingapp.parkingPlace.ParkingPlaceService;
 import com.example.parkingapp.reservation.Reservation;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
+import java.util.List;
+
 @RestController
 public class UserController {
     public UserController(UserService userService) {
@@ -17,6 +21,8 @@ public class UserController {
     public void getUser() {
 
     }
+
+
 
     @PostMapping("/postUser")
     public void postUser(@RequestBody User user){

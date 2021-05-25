@@ -2,6 +2,7 @@ package com.example.parkingapp.reservation;
 
 import com.example.parkingapp.parkingPlace.ParkingPlace;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.userdetails.User;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -17,11 +18,16 @@ public class Reservation {
     private LocalTime startTime;
     private LocalTime endTime;
 
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name="parkingPlace_id", nullable=false)
     private ParkingPlace parkingPlace;
-
+    /*
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
+    */
     public Reservation() {
     }
 

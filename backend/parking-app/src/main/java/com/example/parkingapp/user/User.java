@@ -1,9 +1,9 @@
 package com.example.parkingapp.user;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.parkingapp.reservation.Reservation;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -18,7 +18,10 @@ public class User {
         this.username = username;
         this.password = password;
     }
-
+    /*
+    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL)
+    private List<Reservation> reservations;
+    */
     public User() {
     }
 
