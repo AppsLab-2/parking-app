@@ -1,5 +1,9 @@
-export const url:string="http://localhost:8081/places";
-export const url1:string="http://localhost:8081/putReservation";
-export const url2:string="http://localhost:8081/parkingLot";
-export const url4:string="http://localhost:8081/postPlace"
-export const url3:string="http://localhost:8081/user"
+export const Place:string="http://localhost:8081/places";
+export const SaveReservation:string="http://localhost:8081/putReservation";
+export const Lot:string="http://localhost:8081/parkingLot";
+export const CreatePlace:string="http://localhost:8081/postPlace"
+export const User:string="http://localhost:8081/user"
+export const DeleteLot:string="http://localhost:8081/deleteParkingLot"
+export const CreateLot:string="http://localhost:8081/postParkingLot"
+export const DeletePlace:string="http://localhost:8081/delete";
+export const SaveLot:string="http://localhost:8081/putParkingLot"

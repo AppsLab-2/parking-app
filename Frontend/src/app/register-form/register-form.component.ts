@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register-form',
@@ -13,7 +14,7 @@ export class RegisterFormComponent implements OnInit {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   })
-  constructor( private userService:UserService, private readonly router: Router ) { }
+  constructor( private userService:UserService, private readonly router: Router, private location: Location, ) { }
 
   ngOnInit(): void {
   }
@@ -28,5 +29,9 @@ export class RegisterFormComponent implements OnInit {
         });
     }
   }
+  goBack(): void{
+    this.location.back();
+    
+      }
 
 }

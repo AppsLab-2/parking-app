@@ -1,4 +1,3 @@
-<h1>Rezervačný formulár pre parkovacie miesto číso {{places.id}}</h1>
 <div class="form">
 <mat-form-field appearance="fill">
   <mat-label>Number of to days</mat-label>
@@ -34,4 +33,4 @@
   </mat-form-field>
 </div>
 <button mat-raised-button color="primary" routerLink="/dashboard" id="book" (click)="book()" *ngIf="isCuAv;else B">Book</button>
-<ng-template #B><button mat-raised-button color="primary" routerLink="/dashboard" id="book" (click)="book()" disabled>Book</button></ng-template>
+<ng-template #B><button mat-raised-button color="primary" id="book" (click)="book()" disabled>Book</button></ng-template>

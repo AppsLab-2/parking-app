@@ -27,8 +27,8 @@ public class ParkingLotController {
         return parkingLotService.updateParkingLot(ParkingLotId, parkingLot);
 }
 
-    @DeleteMapping("/deleteParkingLot")
-    public void ParkingLot(@RequestBody long id){
-        parkingLotService.deleteParkingLot(id);
+    @DeleteMapping("/deleteParkingLot/{parkingLotId}")
+    public void ParkingLot(@PathVariable long parkingLotId){
+        parkingLotService.deleteParkingLot(parkingLotId);
     }
 }

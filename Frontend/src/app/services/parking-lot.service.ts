@@ -3,7 +3,7 @@ import { Observable,of } from 'rxjs';
 import { ParkingLot } from '../models/patking-lot';
 import { ParkingPlace } from '../models/place';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { url2,url4 } from '../models/url'
+import { DeleteLot,Lot,CreateLot,SaveLot } from '../models/url'
 import { MessageService } from '../message.service';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -11,10 +11,10 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ParkingLotService {
-  URL = url2;
-  URL2=url4;
-  private postUrl=this.URL2;
-  private lotsUrl = this.URL;
+  private postUrl=CreateLot;
+  private lotsUrl = Lot;
+  private deleteLot=DeleteLot;
+  private saveLot=SaveLot;
   constructor(private http: HttpClient,private messageService: MessageService) { }
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,7 +26,7 @@ export class ParkingLotService {
     );
   }
   updateParkingLot(parkingLot:ParkingLot):Observable<any>{
-    return this.http.put<ParkingLot>(this.lotsUrl, parkingLot, this.httpOptions).pipe(
+    return this.http.put<ParkingLot>(this.saveLot+"/"+parkingLot.id, parkingLot, this.httpOptions).pipe(
       tap(_=>this.log(`updated parkingLot id=${parkingLot.id}`)),
       catchError(this.handleError<any>('updateParkingLot')),
     );
@@ -47,4 +47,13 @@ export class ParkingLotService {
   private log(message: string) {
     this.messageService.add(`PlaceService: ${message}`);
   }
+  deletePrakingLot(parkingLot:ParkingLot | number): Observable<any> {
+    const id = typeof parkingLot === 'number' ? parkingLot : parkingLot.id;
+    const url = `${this.deleteLot}/${id}`;
+
+    return this.http.delete<ParkingLot>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted Parking Lot id=${id}`)),
+      catchError(this.handleError<ParkingLot>('deleteParkingLot'))
+    );
+}
 }
