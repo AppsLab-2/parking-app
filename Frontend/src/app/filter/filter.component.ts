@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ParkingPlace} from '../models/place';
 import {PlaceService} from '../services/place.service';
+import { ParkingLotService } from '../services/parking-lot.service';
+import { ActivatedRoute } from '@angular/router';
+import { ParkingLot } from '../models/patking-lot';
 
 export var filter1:boolean[]=[];
 @Component({
@@ -17,12 +20,13 @@ export class FilterComponent implements OnInit {
   D2:number;
   G:number;
   places: ParkingPlace[]=[];
-
-  constructor(private placeService: PlaceService) {}
+  parkingLot:ParkingLot;
+  constructor(private placeService: PlaceService, private parkingLotService:ParkingLotService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getPlaces();
     console.log(filter1);
+    this.getParkingLot();
   }
   getPlaces(): void{
     this.placeService.getPlaces()
@@ -43,27 +47,32 @@ export class FilterComponent implements OnInit {
   choosedDay(day:string){
     this.I=11;
     for(var i=0;i<7;i++){
-      if(this.places[0].reservation[this.I].day!=day){this.I+=12}
+      if(this.parkingLot.parkingPlace[0].reservation[this.I].day!=day){this.I+=12}
     }
   }
     choosedStartHour(startTime:string){
       for(var i = this.I; i>this.I-12;i--){
-        if (startTime==this.places[0].reservation[i].startTime) {this.D1=i;}
+        if (startTime==this.parkingLot.parkingPlace[0].reservation[i].startTime) {this.D1=i;}
       }
    console.log(this.selectedStartTime,this.D1) 
-   console.log(this.places[16])
+   console.log(this.parkingLot.parkingPlace[16])
   }
   choosedEndHour(endTime:string){
     for(var i = this.I; i>this.I-12;i--){
-      if (endTime==this.places[0].reservation[i].endTime) {this.D2=i;}
+      if (endTime==this.parkingLot.parkingPlace[0].reservation[i].endTime) {this.D2=i;}
     }
     console.log(this.selectedEndTime,this.D2)
 }
 current(){
-  for(var i=0;i<this.places.length;i++)
+  for(var i=0;i<this.parkingLot.parkingPlace.length;i++)
   {
     filter1[i]=true;
 
   }
+}
+getParkingLot(){
+  const id = +this.route.snapshot.paramMap.get('id');
+  this.parkingLotService.getParkinglot()
+    .subscribe(parkingLots => this.parkingLot = parkingLots.find(parkingLot => parkingLot.id === id));
 }
 }

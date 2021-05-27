@@ -30,6 +30,7 @@ export class UserService {
       }),
       withCredentials: true
     };
+    console.log(this.token);
     return this.http.get(`${"http://localhost:8081/user"}`, options).pipe(
       tap(() => this.token.next(token))
     );
@@ -40,7 +41,7 @@ export class UserService {
     return this.http.post(`${"http://localhost:8081/postUser"}`, user);
   }
   logout(): void {
-    this.token = null;
+    this.token = new BehaviorSubject(null);
     this.router.navigateByUrl('/login-form');
   }
 
