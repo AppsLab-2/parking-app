@@ -10,13 +10,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String firstname;
+    private String lastname;
     private String username;
     private String password;
+
 
     public User(long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+
     }
     /*
     @OneToMany(mappedBy = "User", cascade = CascadeType.ALL)
@@ -47,5 +53,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }
