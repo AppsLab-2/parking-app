@@ -4,22 +4,34 @@
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="registerGroup">
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Username</mat-label>
           <label>
             <input formControlName="username" matInput type="text">
           </label>
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Password</mat-label>
           <label>
             <input formControlName="password" matInput type="password">
           </label>
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Repeat Password</mat-label>
           <label>
             <input formControlName="password" matInput type="password">
+          </label>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>FirstName</mat-label>
+          <label>
+            <input formControlName="firstname" matInput type="text">
+          </label>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>LastName</mat-label>
+          <label>
+            <input formControlName="lastname" matInput type="text">
           </label>
         </mat-form-field>
         <button type="submit" mat-raised-button color="primary" (click)="register()" type="button">Register</button>

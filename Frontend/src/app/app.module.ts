@@ -33,6 +33,7 @@ import { PlaceService } from './services/place.service';
 import { AuthInterceptor } from './auth.interceptor/auth.interceptor';
 import { UserService } from './services/user.service';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
+    MatDatepickerModule
   ],
   providers: [
     {

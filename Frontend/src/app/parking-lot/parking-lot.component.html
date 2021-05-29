@@ -1,4 +1,3 @@
-<button routerLink="/login-form" mat-raised-button color="primary">Login</button>
 <button mat-raised-button color="primary" color="primary" (click)="editF()"><span>Edit</span></button>
 <mat-grid-list cols="2" rowHeight="2:1">
     <mat-grid-tile *ngFor="let PT of parkingLot;index as i"><button mat-raised-button color="primary" routerLink="/dashboard/{{parkingLot[i].id}}">{{parkingLot[i].name}}</button><div *ngIf="edit"><button mat-raised-button (click)="deleteParkingLot(parkingLot[i])">X</button></div></mat-grid-tile> 

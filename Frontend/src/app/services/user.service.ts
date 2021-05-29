@@ -35,10 +35,10 @@ export class UserService {
       tap(() => this.token.next(token))
     );
   }
-  register(username: string, password: string): Observable<any> {
-    console.log(this.token)
-    const user = { username, password };
-    return this.http.post(`${"http://localhost:8081/postUser"}`, user);
+  register(username: string, password: string, firstname: string, lastname: string): Observable<any> {
+    const user = { username, password, firstname, lastname };
+    console.log(user)
+    return this.http.post("http://localhost:8081/postUser", user);
   }
   logout(): void {
     this.token = new BehaviorSubject(null);

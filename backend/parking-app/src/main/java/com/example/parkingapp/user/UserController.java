@@ -19,13 +19,13 @@ public class UserController {
 
     @GetMapping("/user")
     public void getUser() {
-
     }
 
 
 
     @PostMapping("/postUser")
     public void postUser(@RequestBody User user){
+        System.out.println(user.getLastname());
         userService.saveUser(user);
     }
     @PutMapping(value = "/putUser/{userId}")

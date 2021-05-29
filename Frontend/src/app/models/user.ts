@@ -5,4 +5,6 @@ export interface Users{
     id:number;
     name:string;
     password:string;
+    firstnamr:string;
+    lastname:string;
 }

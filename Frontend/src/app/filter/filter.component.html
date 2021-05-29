@@ -1,26 +1,28 @@
-<mat-form-field appearance="fill">
-    <mat-label>Day to book</mat-label>
-    <mat-select [(value)]="selectedDay">
-      <mat-option *ngFor="let i of timeIndexes" [value]="places[0].reservation[i].day" (click)="choosedDay(selectedDay)">
-        {{places[0].reservation[i].day}}
-      </mat-option>
-    </mat-select>
+<div *ngIf="parkingLot">
+  <form [formGroup]="dateForm">
+  <mat-form-field appearance="fill">
+    <div class="form-group">
+      <p><mat-label>Date</mat-label></p>
+      <input mat-input id="style" type="date" required name="date" formControlName="date">
+    </div>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Start time</mat-label>
     <mat-select [(value)]="selectedStartTime">
-      <mat-option *ngFor="let i of timesIndexes" [value]="places[0].reservation[i].startTime" (click)="choosedStartHour(selectedStartTime)">
-        {{places[0].reservation[i].startTime}}
+      <mat-option *ngFor="let i of timesIndexes" [value]="parkingLot.parkingPlace[0].reservation[i].startTime" (click)="choosedStartHour(selectedStartTime)">
+        {{parkingLot.parkingPlace[0].reservation[i].startTime}}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>End time</mat-label>
     <mat-select [(value)]="selectedEndTime">
-      <mat-option *ngFor="let i of timesIndexes" [value]="places[0].reservation[i].endTime" (click)="choosedEndHour(selectedEndTime)">
-        {{places[0].reservation[i].endTime}}
+      <mat-option *ngFor="let i of timesIndexes" [value]="parkingLot.parkingPlace[0].reservation[i].endTime" (click)="choosedEndHour(selectedEndTime)">
+        {{parkingLot.parkingPlace[0].reservation[i].endTime}}
       </mat-option>
     </mat-select>
   </mat-form-field>
+</form>
 <button mat-raised-button color="primary" (click)="filter()">Filter</button>
 <button mat-raised-button color="primary" (click)="current()">Cancel filter</button>
+</div>

@@ -1,82 +1,82 @@
+<div *ngIf="parkingLot">
 <mat-card>
   <app-filter></app-filter>
-  <button routerLink="/login-form" mat-raised-button color="primary">Login</button>
   <button mat-raised-button color="primary" routerLink="/parking-lot"><span>Main Page</span></button>
   <button mat-raised-button color="primary" color="primary" (click)="editF()"><span>Edit</span></button>
   <mat-card-content>
     <mat-tab-group>
-      <mat-tab label={{place[0].reservation[11].day}}>
+      <mat-tab label={{parkingLot.parkingPlace[0].reservation[11].day}}>
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
       <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace; index as i" id="riadok">
         <div *ngIf="dashboardFilter[i]">
-      <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="places[i].isAvailable[0][I]; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
-      <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
+      <button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="parkingLot.parkingPlace[i].reservation[isAV[1]].available; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
+      <ng-template #elseB><button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
     </div>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="edit"><button mat-raised-button color="primary" (click)="create()">+</button></mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
-  <mat-tab label={{place[0].reservation[23].day}}>
+  <mat-tab label={{parkingLot.parkingPlace[0].reservation[23].day}}>
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
       <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace;index as i" id="riadok">
         <div *ngIf="dashboardFilter[i]">
-      <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="places[i].isAvailable[1][I]; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
-      <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
+      <button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="parkingLot.parkingPlace[i].reservation[isAV[1]].available; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
+      <ng-template #elseB><button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
     </div>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="edit"><button mat-raised-button color="primary" (click)="create()">+</button></mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
-  <mat-tab label={{place[0].reservation[35].day}}>
+  <mat-tab label={{parkingLot.parkingPlace[0].reservation[35].day}}>
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
       <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace;index as i" id="riadok">
         <div *ngIf="dashboardFilter[i]">
-      <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="places[i].isAvailable[2][I]; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
-      <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
+      <button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="parkingLot.parkingPlace[i].reservation[isAV[1]].available; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
+      <ng-template #elseB><button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
     </div>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="edit"><button mat-raised-button color="primary" (click)="create()">+</button></mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
-  <mat-tab label={{place[0].reservation[47].day}}>
+  <mat-tab label={{parkingLot.parkingPlace[0].reservation[47].day}}>
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
       <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace;index as i" id="riadok">
         <div *ngIf="dashboardFilter[i]">
-      <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="places[i].isAvailable[3][I]; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
-      <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
+      <button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="parkingLot.parkingPlace[i].reservation[isAV[1]].available; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
+      <ng-template #elseB><button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
     </div>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="edit"><button mat-raised-button color="primary" (click)="create()">+</button></mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
-  <mat-tab label={{place[0].reservation[59].day}}>
+  <mat-tab label={{parkingLot.parkingPlace[0].reservation[59].day}}>
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
       <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace;index as i" id="riadok">
         <div *ngIf="dashboardFilter[i]">
-      <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="places[i].isAvailable[4][I]; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
-      <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
+      <button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="parkingLot.parkingPlace[i].reservation[isAV[1]].available; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
+      <ng-template #elseB><button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
     </div>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="edit"><button mat-raised-button color="primary" (click)="create()">+</button></mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
-  <mat-tab label={{place[0].reservation[61].day}}>
+  <mat-tab label={{parkingLot.parkingPlace[0].reservation[61].day}}>
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
       <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace;index as i" id="riadok">
         <div *ngIf="dashboardFilter[i]">
-      <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="places[i].isAvailable[5][I]; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
-      <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
+      <button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="parkingLot.parkingPlace[i].reservation[isAV[1]].available; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
+      <ng-template #elseB><button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
     </div>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="edit"><button mat-raised-button color="primary" (click)="create()">+</button></mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
-  <mat-tab label={{place[0].reservation[73].day}}>
+  <mat-tab label={{parkingLot.parkingPlace[0].reservation[73].day}}>
     <mat-grid-list cols="8" rowHeight="0.1:0.1">
       <mat-grid-tile *ngFor="let place of parkingLot.parkingPlace;index as i" id="riadok">
         <div *ngIf="dashboardFilter[i]">
-      <button mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="places[i].isAvailable[6][I]; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
-      <ng-template #elseB><button mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
+      <button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="accent" *ngIf="parkingLot.parkingPlace[i].reservation[isAV[1]].available; else elseB"><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div>
+      <ng-template #elseB><button  id="switch" mat-raised-button routerLink="/detail/{{place.id}}" color="warn" ><span>{{place.id}}</span></button><div *ngIf="edit"><button mat-raised-button (click)="deletePlace(place)">X</button></div></ng-template>
     </div>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="edit"><button mat-raised-button color="primary" (click)="create()">+</button></mat-grid-tile>
@@ -85,3 +85,4 @@
   </mat-tab-group>
   </mat-card-content>
 </mat-card>
+</div>

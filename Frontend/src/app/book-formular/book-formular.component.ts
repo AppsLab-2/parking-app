@@ -4,7 +4,7 @@ import { FEPlace,ParkingPlace,Reservation } from '../models/place';
 import { PlaceService } from '../services/place.service'
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
 interface Number {
   value: number;
 }
@@ -27,7 +27,7 @@ export class BookFormularComponent implements OnInit {
     {value: 6},
     {value: 7},
   ];
-  daysIndexes = [0, 12, 24, 36, 48, 60, 72];
+  daysIndexes = [11,23,35,47,59,61,73,85,97,109,121,132,145,157,169,171,183,195,207,219,231,243,255,267,279,291,303,315,327,339,351,363];
   timesIndexes = [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11];
   selectedNumber:number=this.numbers[0].value;
   selectedDay:string;
@@ -39,9 +39,13 @@ export class BookFormularComponent implements OnInit {
   G:number;
   F:number[]=[];
   isCuAv:boolean=true;
-  constructor(    private location: Location,private placeService: PlaceService,    private route: ActivatedRoute, private readonly router: Router,) { }
+  dateForm=new FormGroup({
+    date:new FormControl(''),
+  })
+  constructor(private location: Location,private placeService: PlaceService,private route: ActivatedRoute, private readonly router: Router,) { }
   ngOnInit(): void {
     this.getPlaces();
+    console.log(this.dateForm.value.date)
   }
   goBack(): void{
     this.location.back();
@@ -52,7 +56,7 @@ export class BookFormularComponent implements OnInit {
           .subscribe(places => this.places = places.find(place => place.id === id));
       }
       choosedDay(day:string){
-        for(var i=11; i<84; i++){
+        for(var i=11; i<372; i++){
           if(this.selectedDay==this.places.reservation[i].day){this.I=i;}
         }
         console.log(this.I)

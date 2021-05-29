@@ -4,6 +4,8 @@ import {PlaceService} from '../services/place.service';
 import { ParkingLotService } from '../services/parking-lot.service';
 import { ActivatedRoute } from '@angular/router';
 import { ParkingLot } from '../models/patking-lot';
+import { lngth } from '../dashboard/dashboard.component'
+import { FormControl, FormGroup } from '@angular/forms';
 
 export var filter1:boolean[]=[];
 @Component({
@@ -21,12 +23,15 @@ export class FilterComponent implements OnInit {
   G:number;
   places: ParkingPlace[]=[];
   parkingLot:ParkingLot;
+  dateForm=new FormGroup({
+    date:new FormControl(''),
+  })
   constructor(private placeService: PlaceService, private parkingLotService:ParkingLotService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getPlaces();
-    console.log(filter1);
     this.getParkingLot();
+    console.log(filter1);
   }
   getPlaces(): void{
     this.placeService.getPlaces()
@@ -36,13 +41,12 @@ export class FilterComponent implements OnInit {
     timesIndexes = [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11];
     filter(){
       this.G=this.D2-this.D1;
-      for(var j=0;j<this.places.length;j++){
+      for(var j=0;j<this.parkingLot.parkingPlace.length;j++){
         for(var i=this.D1;i<this.D2+1;i++){
-        if(this.places[j].reservation[i].available==true){console.log(this.places[j].reservation[i].available)}
+        if(this.parkingLot.parkingPlace[j].reservation[i].available==true){console.log(this.parkingLot.parkingPlace[j].reservation[i].available)}
         else{filter1[j]=false}
         }
       }
-      console.log(filter1)
   }
   choosedDay(day:string){
     this.I=11;
@@ -64,10 +68,9 @@ export class FilterComponent implements OnInit {
     console.log(this.selectedEndTime,this.D2)
 }
 current(){
-  for(var i=0;i<this.parkingLot.parkingPlace.length;i++)
+  for(var i=0;i<lngth;i++)
   {
     filter1[i]=true;
-
   }
 }
 getParkingLot(){

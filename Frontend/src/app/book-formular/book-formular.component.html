@@ -1,19 +1,18 @@
-<div class="form">
-<mat-form-field appearance="fill">
+<div *ngIf="places" class="form">
+<form [formGroup]="dateForm">
+  <mat-form-field appearance="fill">
   <mat-label>Number of to days</mat-label>
   <mat-select [(value)]="selectedNumber">
     <mat-option [value]="number.value" *ngFor="let number of numbers">
       {{number.value}}
     </mat-option>
   </mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Day to book</mat-label>
-  <mat-select [(value)]="selectedDay">
-    <mat-option *ngFor="let i of daysIndexes" [value]="places.reservation[i].day" (click)="choosedDay(selectedDay)">
-      {{places.reservation[i].day}}
-    </mat-option>
-  </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+  <div class="form-group">
+    <p><mat-label>Date</mat-label></p>
+    <input mat-input id="style" type="date" required name="date" formControlName="date">
+  </div>
 </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Start time</mat-label>
@@ -31,6 +30,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+</form>
 </div>
 <button mat-raised-button color="primary" routerLink="/dashboard" id="book" (click)="book()" *ngIf="isCuAv;else B">Book</button>
 <ng-template #B><button mat-raised-button color="primary" id="book" (click)="book()" disabled>Book</button></ng-template>
