@@ -9,7 +9,6 @@
     <mat-label>Password</mat-label>
     <input matInput formControlName="password" type="password" required>
   </mat-form-field>
-
   <button mat-raised-button type="submit" (click)="login()" [disabled]="!loginGroup.valid" color="primary">Login</button>
   <button mat-raised-button routerLink="/register" color="primary">Register</button>
 </form>

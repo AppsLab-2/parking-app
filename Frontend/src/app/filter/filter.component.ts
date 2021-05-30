@@ -43,23 +43,23 @@ export class FilterComponent implements OnInit {
       this.G=this.D2-this.D1;
       for(var j=0;j<this.parkingLot.parkingPlace.length;j++){
         for(var i=this.D1;i<this.D2+1;i++){
-        if(this.parkingLot.parkingPlace[j].reservation[i].available==true){console.log(this.parkingLot.parkingPlace[j].reservation[i].available)}
+        if(this.parkingLot.parkingPlace[j].reservation[i].available==true){}
         else{filter1[j]=false}
         }
       }
   }
-  choosedDay(day:string){
+  choosedDay(){
     this.I=11;
-    for(var i=0;i<7;i++){
-      if(this.parkingLot.parkingPlace[0].reservation[this.I].day!=day){this.I+=12}
+    for(var i=0;i<30;i++){
+      if(this.parkingLot.parkingPlace[0].reservation[this.I].day!=this.dateForm.value.date){this.I+=12}
     }
+    console.log(this.dateForm.value.date,this.I)
   }
     choosedStartHour(startTime:string){
       for(var i = this.I; i>this.I-12;i--){
         if (startTime==this.parkingLot.parkingPlace[0].reservation[i].startTime) {this.D1=i;}
       }
-   console.log(this.selectedStartTime,this.D1) 
-   console.log(this.parkingLot.parkingPlace[16])
+   console.log(this.selectedStartTime,this.D1)
   }
   choosedEndHour(endTime:string){
     for(var i = this.I; i>this.I-12;i--){

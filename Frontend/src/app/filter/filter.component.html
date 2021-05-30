@@ -1,11 +1,9 @@
 <div *ngIf="parkingLot">
   <form [formGroup]="dateForm">
-  <mat-form-field appearance="fill">
-    <div class="form-group">
-      <p><mat-label>Date</mat-label></p>
-      <input mat-input id="style" type="date" required name="date" formControlName="date">
-    </div>
-  </mat-form-field>
+      <div class="form-group">
+        <p><mat-label>Date</mat-label></p>
+        <input mat-input id="style" type="date" required name="date" formControlName="date" (click)="choosedDay()">
+      </div>
   <mat-form-field appearance="fill">
     <mat-label>Start time</mat-label>
     <mat-select [(value)]="selectedStartTime">

@@ -30,7 +30,6 @@ export class BookFormularComponent implements OnInit {
   daysIndexes = [11,23,35,47,59,61,73,85,97,109,121,132,145,157,169,171,183,195,207,219,231,243,255,267,279,291,303,315,327,339,351,363];
   timesIndexes = [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11];
   selectedNumber:number=this.numbers[0].value;
-  selectedDay:string;
   selectedStartTime:string;
   selectedEndTime:string;
   I:number;
@@ -55,9 +54,9 @@ export class BookFormularComponent implements OnInit {
         this.placeService.getPlaces()
           .subscribe(places => this.places = places.find(place => place.id === id));
       }
-      choosedDay(day:string){
+      choosedDay(){
         for(var i=11; i<372; i++){
-          if(this.selectedDay==this.places.reservation[i].day){this.I=i;}
+          if(this.dateForm.value.date==this.places.reservation[i].day){this.I=i;}
         }
         console.log(this.I)
       }
