@@ -19,7 +19,7 @@ public class ParkingAppApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 	}
-	
+
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
 				.withUser("springadmin").password(passwordEncoder().encode("admin123")).roles("ADMIN", "USER");
