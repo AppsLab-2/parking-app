@@ -3,6 +3,7 @@
     right: 550px;
     max-width: 600px;
     top:600px;
+    color: white;
 }
 .style{
     width: 200px; height: 35px; border-radius: 5px;
@@ -11,4 +12,10 @@
     position: fixed;
     top: 800px;
     right: 180px;
+}
+mat-label{
+    color: white;
+}
+mat-select{
+    color: white;
 }

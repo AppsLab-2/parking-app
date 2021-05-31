@@ -42,7 +42,7 @@ this.location.back();
 
   }
   choosedDay(){
-    for(var i=0;i<31;i++){
+    for(var i=0;i<30;i++){
       if(this.place.reservation[this.arr[i]].day==this.dateForm.value.date){this.F=this.arr[i];this.D=this.arr[i]}
     }
     for(var i=0;i<12;i++){

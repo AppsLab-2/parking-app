@@ -2,8 +2,9 @@
   <form [formGroup]="dateForm">
       <div class="form-group">
         <p><mat-label>Date</mat-label></p>
-        <input mat-input id="style" type="date" required name="date" formControlName="date" (click)="choosedDay()">
+        <input mat-input id="style" type="date" required name="date" formControlName="date">
       </div>
+      <button mat-raised-button color="primary" (click)="choosedDay()">Confirm</button>
   <mat-form-field appearance="fill">
     <mat-label>Start time</mat-label>
     <mat-select [(value)]="selectedStartTime">

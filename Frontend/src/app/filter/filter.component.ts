@@ -51,11 +51,13 @@ export class FilterComponent implements OnInit {
   choosedDay(){
     this.I=11;
     for(var i=0;i<30;i++){
-      if(this.parkingLot.parkingPlace[0].reservation[this.I].day!=this.dateForm.value.date){this.I+=12}
+      if(this.parkingLot.parkingPlace[0].reservation[this.I].day!=this.dateForm.value.date){this.I+=12;}
     }
+    console.log(this.dateForm.value.date,this.I)
   }
     choosedStartHour(startTime:string){
       for(var i = this.I; i>this.I-12;i--){
+        console.log(startTime)
         if (startTime==this.parkingLot.parkingPlace[0].reservation[i].startTime) {this.D1=i;}
       }
   }

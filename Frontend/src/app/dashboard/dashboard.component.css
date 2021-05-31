@@ -24,3 +24,7 @@ height: 150px;
 .mat-tab{
 padding: 100px;
 }
+#switch{
+  width: 200px;
+  height: 200px;
+}

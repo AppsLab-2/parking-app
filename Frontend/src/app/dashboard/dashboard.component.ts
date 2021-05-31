@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   reservation:Reservation[]=[];
   edit:boolean=false;
   dashboardFilter=filter1;
-  arr:number[]=[11,23,35,47,59,71,83,95,107,119,131,143,155,167,179,181,193,205,217,229,241,253,265,277,289,301,313,325,337,359,371];
+  arr:number[]=[11,23,35,47,59,71,83,95,107,119,131,143,155,167,179,181,193,205,217,229,241,253,265,277,289,301,313,325,337,359];
   isAV:number;
   dateForm=new FormGroup({
     date:new FormControl(''),
@@ -85,7 +85,7 @@ compareTime(){
   else if(this.today.getHours()>=22&&this.today.getHours()<24){
     this.I=0
   }
-  for(var i=0;i<31;i++){
+  for(var i=0;i<30;i++){
     this.isAV=this.arr[i]-this.I;
 }
   }
@@ -100,7 +100,7 @@ deletePlace(place: ParkingPlace): void {
 create(){
   this.parkingLot.parkingPlace[this.parkingLot.parkingPlace.length-1+1]=JSON.parse(JSON.stringify(this.ParkinGPlace));
   this.parkingLot.parkingPlace[this.parkingLot.parkingPlace.length-1].id=null;
-  for(var i=0;i<84;i++){
+  for(var i=0;i<360;i++){
     this.parkingLot.parkingPlace[this.parkingLot.parkingPlace.length-1].reservation[i].id=null;
   }
   console.log(this.parkingLot)
@@ -108,11 +108,11 @@ create(){
   this.dashboardFilter[this.parkingLot.parkingPlace.length-1+1]=true;
 }
 choosedDay(){
-  for(var i=0;i<31;i++){
+  for(var i=0;i<30;i++){
     if(this.parkingLot.parkingPlace[0].reservation[this.arr[i]].day==this.dateForm.value.date){this.D=this.arr[i]}
   }
   console.log(this.D)
-  for(var i=0;i<31;i++){
+  for(var i=0;i<30;i++){
     this.isAV=this.D-this.I;
 }
 }
