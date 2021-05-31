@@ -16,9 +16,11 @@ public class UserDetailsImpl implements UserDetails {
         this.user = user;
     }
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        if (user.isAdmin()) {
+            return Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
         return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
     }
 

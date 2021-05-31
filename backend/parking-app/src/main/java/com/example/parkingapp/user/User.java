@@ -14,20 +14,20 @@ public class User {
     private String lastname;
     private String username;
     private String password;
+    private boolean admin;
 
-
-    public User(long id, String username, String password, String firstname, String lastname) {
+    public User(long id, String firstname, String lastname, String username, String password, boolean admin) {
         this.id = id;
-        this.username = username;
-        this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-
+        this.username = username;
+        this.password = password;
+        this.admin = admin;
     }
-    /*
-    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL)
+
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Reservation> reservations;
-    */
+
     public User() {
     }
 
@@ -69,5 +69,21 @@ public class User {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }

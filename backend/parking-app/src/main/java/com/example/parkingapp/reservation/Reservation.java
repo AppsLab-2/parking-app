@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.User;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 public class Reservation {
@@ -23,11 +24,11 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name="parkingPlace_id", nullable=false)
     private ParkingPlace parkingPlace;
-    /*
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
-    private User user;
-    */
+
+    @ManyToMany
+    @JoinTable(name = "reservation_user",joinColumns = @JoinColumn(name = "reservation_id"),inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> user;
+
     public Reservation() {
     }
 
@@ -85,5 +86,13 @@ public class Reservation {
 
     public void setParkingPlace(ParkingPlace parkingPlace) {
         this.parkingPlace = parkingPlace;
+    }
+
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
     }
 }

@@ -14,12 +14,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("springadmin").password(passwordEncoder().encode("admin123")).roles("ADMIN", "USER");
-    }
-
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .cors().and()
