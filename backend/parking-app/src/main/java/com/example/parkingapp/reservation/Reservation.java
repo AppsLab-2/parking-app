@@ -24,11 +24,11 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name="parkingPlace_id", nullable=false)
     private ParkingPlace parkingPlace;
-
+/*
     @ManyToMany
     @JoinTable(name = "reservation_user",joinColumns = @JoinColumn(name = "reservation_id"),inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> user;
-
+*/
     public Reservation() {
     }
 
@@ -87,7 +87,7 @@ public class Reservation {
     public void setParkingPlace(ParkingPlace parkingPlace) {
         this.parkingPlace = parkingPlace;
     }
-
+/*
     public List<User> getUser() {
         return user;
     }
@@ -95,4 +95,5 @@ public class Reservation {
     public void setUser(List<User> user) {
         this.user = user;
     }
+ */
 }
