@@ -53,19 +53,16 @@ export class FilterComponent implements OnInit {
     for(var i=0;i<30;i++){
       if(this.parkingLot.parkingPlace[0].reservation[this.I].day!=this.dateForm.value.date){this.I+=12}
     }
-    console.log(this.dateForm.value.date,this.I)
   }
     choosedStartHour(startTime:string){
       for(var i = this.I; i>this.I-12;i--){
         if (startTime==this.parkingLot.parkingPlace[0].reservation[i].startTime) {this.D1=i;}
       }
-   console.log(this.selectedStartTime,this.D1)
   }
   choosedEndHour(endTime:string){
     for(var i = this.I; i>this.I-12;i--){
       if (endTime==this.parkingLot.parkingPlace[0].reservation[i].endTime) {this.D2=i;}
     }
-    console.log(this.selectedEndTime,this.D2)
 }
 current(){
   for(var i=0;i<lngth;i++)

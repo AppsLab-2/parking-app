@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {FEPlace, ParkingPlace, Reservation } from '../models/place';
+import { FEPlace, ParkingPlace, Reservation } from '../models/place';
 import {PlaceService} from '../services/place.service'
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-detail-page',
@@ -10,42 +11,43 @@ import {PlaceService} from '../services/place.service'
   styleUrls: ['./detail-page.component.css']
 })
 export class DetailPageComponent implements OnInit {
- place: FEPlace;
- isCuAv:number=0;
- places:ParkingPlace;
- timeIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
- dateIndexes = [0, 1, 2, 3, 4, 5, 6];
+ place:ParkingPlace;
+ dateForm=new FormGroup({
+  date:new FormControl(''),
+})
+arr:number[]=[0,12,24,36,48,60,72,84,96,108,120,132,144,156,168,180,192,204,216,228,240,252,264,276,288,300,312,324,336,348,360];
+F:number=0;
+ava:number[]=[];
+G:number[]=[1,2,3,4,5,6,7,8,9,10,11,12];
+D:number;
   constructor(
     private location: Location,
     private placeService: PlaceService,
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
+    for(var i=0;i<12;i++){
+      this.ava[i]=this.F
+      this.F++
+    }
     this.getPlace();
   }
   getPlace(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.placeService.getPlacesAlt()
-      .subscribe(places =>{ this.place = places.find(place => place.id === id); this.avCheck()});
-  }
-  getPlaces():void{
-    const id = +this.route.snapshot.paramMap.get('id');
     this.placeService.getPlaces()
-      .subscribe(places => this.places = places.find(place => place.id === id));
+      .subscribe(places =>{ this.place = places.find(place => place.id === id);});
   }
   goBack(): void{
 this.location.back();
 
   }
-  avCheck(){
-    for(var i=0;i<12;i++){
-      for(var j=0;j<7;j++){
-        if(this.place.isAvailable[j][i]==true){console.log(this.isCuAv)}
-        else{this.isCuAv=1;console.log(this.isCuAv)}
-      }
+  choosedDay(){
+    for(var i=0;i<31;i++){
+      if(this.place.reservation[this.arr[i]].day==this.dateForm.value.date){this.F=this.arr[i];this.D=this.arr[i]}
     }
-
-  }
-  click():void{
+    for(var i=0;i<12;i++){
+      this.ava[i]=this.F
+      this.F++
+    }
   }
 }

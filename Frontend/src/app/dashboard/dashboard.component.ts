@@ -6,6 +6,7 @@ import { ParkingLot } from '../models/patking-lot';
 import { ParkingLotService } from '../services/parking-lot.service'
 import { ActivatedRoute } from '@angular/router';
 import { examplePlace } from '../models/example'
+import { FormControl, FormGroup } from '@angular/forms';
 
 export var lngth:number;
 @Component({
@@ -18,19 +19,23 @@ export class DashboardComponent implements OnInit {
   places: FEPlace[];
   today: Date;
   parkingLot:ParkingLot;
-  I:number;
+  I:number=1;
   place:ParkingPlace[]=[];
-  D:number[]=[]
+  D:number;
   reservation:Reservation[]=[];
   edit:boolean=false;
   dashboardFilter=filter1;
-  arr:number[]=[11,23,35,47,59,61,73,85,97,109,121,132,145,157,169,171,183,195,207,219,231,243,255,267,279,291,303,315,327,339,351,363];
-  isAV:number[]=[];
+  arr:number[]=[11,23,35,47,59,71,83,95,107,119,131,143,155,167,179,181,193,205,217,229,241,253,265,277,289,301,313,325,337,359,371];
+  isAV:number;
+  dateForm=new FormGroup({
+    date:new FormControl(''),
+  })
   constructor(private placeService: PlaceService, private parkingLotservice: ParkingLotService,private route: ActivatedRoute)  {}
   ngOnInit(): void {
     this.compareTime();
     this.getParkingLot();
     this.getPlace();
+    
   }
   getPlace(): void{
     this.placeService.getPlaces()
@@ -81,7 +86,7 @@ compareTime(){
     this.I=0
   }
   for(var i=0;i<31;i++){
-    this.isAV[i]=this.arr[i]-this.I;
+    this.isAV=this.arr[i]-this.I;
 }
   }
 editF(){
@@ -101,5 +106,14 @@ create(){
   console.log(this.parkingLot)
   this.placeService.addParkingPlace(this.parkingLot.parkingPlace[this.parkingLot.parkingPlace.length-1],this.parkingLot).subscribe();
   this.dashboardFilter[this.parkingLot.parkingPlace.length-1+1]=true;
+}
+choosedDay(){
+  for(var i=0;i<31;i++){
+    if(this.parkingLot.parkingPlace[0].reservation[this.arr[i]].day==this.dateForm.value.date){this.D=this.arr[i]}
+  }
+  console.log(this.D)
+  for(var i=0;i<31;i++){
+    this.isAV=this.D-this.I;
+}
 }
 }

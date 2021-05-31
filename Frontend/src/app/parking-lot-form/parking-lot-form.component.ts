@@ -40,18 +40,10 @@ export class ParkingLotFormComponent implements OnInit {
     for(var i=0;i<this.createGroup.value.NumberOfPP;i++){
       ParkinGLot.parkingPlace[i]=JSON.parse(JSON.stringify(this.ParkinGPlace));
       ParkinGLot.parkingPlace[i].id=null;
-     for(var j=0;j<84;j++){
-        if(i==0){
-        ParkinGLot.parkingPlace[i].reservation[j].id=null;
-      }
-     else{
-        ParkinGLot.parkingPlace[i].reservation[j].id=null;
-      }
-    }
   }
   for(var i=0;i<this.createGroup.value.NumberOfPPP;i++)
   {
-    for(var j=0;j<84;j++){
+    for(var j=0;j<372;j++){
       ParkinGLot.parkingPlace[i].reservation[j].available=false;
     }
   }

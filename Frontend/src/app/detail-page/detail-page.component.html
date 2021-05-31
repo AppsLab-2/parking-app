@@ -1,32 +1,30 @@
-<div *ngIf="place;">
+<div *ngIf="place">
   <h2>Detail of parking place number {{place.id}}</h2>
+  <form [formGroup]="dateForm">
+    <div class="form-group">
+      <p><mat-label>Date</mat-label></p>
+      <input mat-input id="style" type="date" required name="date" formControlName="date" >
+    </div>
+    <button mat-raised-button color="primary" (click)="choosedDay()">Confirm</button>
+  </form>
   <table class="table">
     <TR>
       <TD></TD>
-      <TD>{{place.day[0]}}</TD>
-      <TD>{{place.day[1]}}</TD>
-      <TD>{{place.day[2]}}</TD>
-      <TD>{{place.day[3]}}</TD>
-      <TD>{{place.day[4]}}</TD>
-      <TD>{{place.day[5]}}</TD>
-      <TD>{{place.day[6]}}</TD>
+      <TD>{{place.reservation[D].day}}</TD>
     </TR>
-    <tr *ngFor="let i of timeIndexes">
-      <td>{{place.time[i]}}</td>
-      <td *ngFor="let j of dateIndexes">
-        <div *ngIf="place.isAvailable[j][i]; else elseB" id="true">
-          {{place.isAvailable[j][i]}}
+    <tr *ngFor="let j of G;index as i">
+      <td>{{place.reservation[ava[i]].startTime}}-{{place.reservation[ava[i]].endTime}}</td>
+        <div *ngIf="place.reservation[ava[i]].available; else elseB" id="true">
+          {{place.reservation[ava[i]].available}}
         </div>
       <ng-template #elseB>
         <div id="false">
-        {{place.isAvailable[j][i]}}
+          {{place.reservation[ava[i]].available}}
       </div>
       </ng-template>
-      </td>
       </tr>
   </table>
- <div [ngSwitch]="isCuAv">
- <button routerLink="/unbook-form/{{place.id}}"  mat-raised-button color="primary" *ngSwitchCase=1>Unbook</button></div>
+ <button routerLink="/unbook-form/{{place.id}}"  mat-raised-button color="primary">Unbook</button>
 <button mat-raised-button color="primary" (click)="goBack()" >Back</button>
 <button routerLink="/parking-lot" mat-raised-button color="primary" id="dashboard">Main page</button>
 <button routerLink="/login-form" mat-raised-button color="primary" class="Login">Login</button>
