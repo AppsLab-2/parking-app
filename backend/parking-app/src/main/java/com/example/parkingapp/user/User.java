@@ -24,10 +24,10 @@ public class User {
         this.password = password;
         this.admin = admin;
     }
-
+/*
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Reservation> reservations;
-
+*/
     public User() {
     }
 
@@ -78,7 +78,7 @@ public class User {
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
-
+/*
     public List<Reservation> getReservations() {
         return reservations;
     }
@@ -86,4 +86,5 @@ public class User {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
+ */
 }
